@@ -1,4 +1,5 @@
-- name: Add a Mandatory  local group
+---
+- name: name: Add a Mandatory  local group
   hosts: windows
   win_group_membership:
     name: Administrators
