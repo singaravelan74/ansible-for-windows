@@ -5,6 +5,6 @@
   tasks:
     - name: Add User  
       win_user:
-        name: anishadmin
+        name: velanadmin
         password: "Ws7Bju7eT9"
         state: present
