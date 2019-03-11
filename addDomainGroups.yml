@@ -1,6 +1,6 @@
-- name: Remove a domain group and service user from a local group
+- name: Add SYSTEM as a member of Administrators group
   win_group_membership:
-    name: Backup Operators
+    name: Administrators
     members:
       - NT AUTHORITY\SYSTEM
-    state: absent
+    state: present
