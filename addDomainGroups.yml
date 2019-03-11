@@ -1,6 +1,6 @@
-- name: Add a Mandatory domain security groups to a local group
+- name: Remove a domain group and service user from a local group
   win_group_membership:
-    name: Administrators
+    name: Backup Operators
     members:
       - NT AUTHORITY\SYSTEM
-    state: present
+    state: absent
