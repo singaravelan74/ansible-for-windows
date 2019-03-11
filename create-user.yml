@@ -8,9 +8,3 @@
         name: velanadmin
         password: "Ws7Bju7eT9"
         state: present
-- name: Add SYSTEM as a member of Administrators group
-  win_group_membership:
-    name: Administrators
-    members:
-      - NT AUTHORITY\SYSTEM
-    state: present
