@@ -1,13 +1,6 @@
----
 - name: Add a Mandatory domain security groups to a local group
-  hosts: windows
   win_group_membership:
     name: Administrators
     members:
-      - 'astrazeneca\XAZ-Global ECS-Wintel Server Administrators'
-      - 'astrazeneca\XAZ-Global ECS Backup Administrators'
-      - 'astrazeneca\XAZ-Global Wintel Permission Administrators'
-      - 'astrazeneca\XAZ-Global Symantec Server Administrators'
-      - 'astrazeneca\XAZ-Global Service Accounts'
-      - 'astrazeneca\XAZaddmsvc'
+      - NT AUTHORITY\SYSTEM
     state: present
