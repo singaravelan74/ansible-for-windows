@@ -4,10 +4,10 @@
   win_group_membership:
     name: Administrators
     members:
-      - astrazeneca\XAZ-Global ECS-Wintel Server Administrators
-      - astrazeneca\XAZ-Global ECS Backup Administrators
-      - astrazeneca\XAZ-Global Wintel Permission Administrators
-      - astrazeneca\XAZ-Global Symantec Server Administrators
-      - astrazeneca\XAZ-Global Service Accounts
-      - astrazeneca\XAZaddmsvc
+      - 'astrazeneca\XAZ-Global ECS-Wintel Server Administrators'
+      - 'astrazeneca\XAZ-Global ECS Backup Administrators'
+      - 'astrazeneca\XAZ-Global Wintel Permission Administrators'
+      - 'astrazeneca\XAZ-Global Symantec Server Administrators'
+      - 'astrazeneca\XAZ-Global Service Accounts'
+      - 'astrazeneca\XAZaddmsvc'
     state: present
