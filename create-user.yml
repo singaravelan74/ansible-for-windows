@@ -8,15 +8,3 @@
         name: velanadmin
         password: "Ws7Bju7eT9"
         state: present
-    - name: Add a local and domain user to a local group  
-      win_group_membership:
-        name: Administrators
-        members:
-          - 'ASTRAZENECA\XAZ-CSIS IAM Hybrid Operation-Server Administrators'
-          - 'ASTRAZENECA\XAZ-CSIS Hybrid Operation-Server Administrators'
-          - 'ASTRAZENECA\XAZ-Global ECS-Wintel Server Administrators'
-          - 'ASTRAZENECA\XAZ-Global Wintel Permission Administrators'
-          - 'ASTRAZENECA\XAZ-Global Symantec Server Administrators'
-          - 'ASTRAZENECA\XAZ-Global ECS Backup Administrators '
-          - 'ASTRAZENECA\XAZ-Global Service Accounts'
-        state: present
