@@ -1,0 +1,8 @@
+---
+- name: Enable firewall for Domain, Public and Private profiles
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Enable firewall for Domain, Public and Private profiles
+      win_firewall:
+        automatic: yes
