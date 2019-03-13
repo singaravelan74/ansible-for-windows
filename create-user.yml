@@ -1,22 +1,22 @@
 ---
-- name: Add a user
+- name: Groups and Users Standards
   hosts: all
   gather_facts: false
   tasks:
-    - name: Add User  
+    - name: Add Local User  
       win_user:
         name: velanadmin
         password: "Ws7Bju7eT9"
         state: present
-    - name: Add User  
+    - name: Add a local and domain user to a local group  
       win_group_membership:
         name: Administrators
         members:
-          - ASTRAZENECA\'XAZ-CSIS IAM Hybrid Operation-Server Administrators'
-          - ASTRAZENECA\'XAZ-CSIS Hybrid Operation-Server Administrators'
-          - ASTRAZENECA\'XAZ-Global ECS-Wintel Server Administrators'
-          - ASTRAZENECA\'XAZ-Global ECS Backup Administrators'
-          - ASTRAZENECA\'XAZ-Global Wintel Permission Administrators'
-          - ASTRAZENECA\'XAZ-Global Symantec Server Administrators'
-          - ASTRAZENECA\'XAZ-Global Service Accounts'
+          - ASTRAZENECA\XAZ-CSIS IAM Hybrid Operation-Server Administrators
+          - ASTRAZENECA\XAZ-CSIS Hybrid Operation-Server Administrators
+          - ASTRAZENECA\XAZ-Global ECS-Wintel Server Administrators
+          - ASTRAZENECA\XAZ-Global ECS Backup Administrators
+          - ASTRAZENECA\XAZ-Global Wintel Permission Administrators
+          - ASTRAZENECA\XAZ-Global Symantec Server Administrators
+          - ASTRAZENECA\XAZ-Global Service Accounts
         state: present
