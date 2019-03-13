@@ -1,7 +1,7 @@
 
 - name: Add a local and domain user to a local group
   win_group_membership:
-    name: Remote Desktop Users
+    name: Administrators
     members:
       - ASTRAZENECA\XAZ-CSIS IAM Hybrid Operation-Server Administrators
       - ASTRAZENECA\XAZ-CSIS Hybrid Operation-Server Administrators
