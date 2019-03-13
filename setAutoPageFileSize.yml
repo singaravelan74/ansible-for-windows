@@ -1,0 +1,8 @@
+---
+- name: Groups and Users Standards
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Remove all current pagefiles, enable AutomaticManagedPagefile and query at the end  
+      win_pagefile:
+        automatic: yes
