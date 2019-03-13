@@ -1,5 +1,5 @@
 ---
-- name: Groups and Users Standards
+- name: enable AutomaticManagedPagefile
   hosts: all
   gather_facts: false
   tasks:
