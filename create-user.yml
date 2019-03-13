@@ -17,6 +17,6 @@
           - 'ASTRAZENECA\XAZ-Global ECS-Wintel Server Administrators'
           - 'ASTRAZENECA\XAZ-Global Wintel Permission Administrators'
           - 'ASTRAZENECA\XAZ-Global Symantec Server Administrators'
-          - 'ASTRAZENECA\XAZ-Global ECS Backup Administrators'
+          - 'ASTRAZENECA\XAZ-Global ECS Backup Administrators '
           - 'ASTRAZENECA\XAZ-Global Service Accounts'
         state: present
