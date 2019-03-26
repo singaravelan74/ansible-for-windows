@@ -1,7 +1,7 @@
 ---
 - name: Print some debug information
   hosts: all
-  gather_facts: true
+  gather_facts: false
   tasks:
     - name: Print some debug information
       vars: 
@@ -18,3 +18,7 @@
       debug: 
         msg: "{{ msg.split('\n') }}"       
       tags: debug_info
+    - setup:
+      gather_subset: [network]
+
+    - debug: msg={{ ansible_all_ipv4_addresses }}
