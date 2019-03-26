@@ -4,3 +4,418 @@ windows_repo:
   url: 'http://sesklpulpprd01.astrazeneca.net/pulp/isos'
   url_SQL: 'http://sesklpulpprd01.astrazeneca.net/MSSQLServer'
   url_SQL_nagios: 'http://sesklpulpprd01.astrazeneca.net/nsclient/'
+windows_desktopinfo:
+  files:
+    DesktopInfo.exe: 59efbfaecb352ef55541257cdc189bb4908e5fc0ba3342748283f64dd1a88a39
+    desktopinfo.ini: c6a6d94ee7bfd9d5fb6f543a286b1af00a5f29ec0e9e8002e3f7921af7f658e7
+    DesktopInfo.lnk: 3ba0b49e7fa16461b390a4a872c180a10c4560881487e876279e708f47bf97f2
+    english.ini: 940759956a5f7aab47524df910ed538c3d0039eeefba343ab611573a91f05baf
+    readme.txt: 7efbb33cf1680030ec09b618b7fb82945fb3006ac5c39f6d74f56c8d30e8d44f
+windows_diruse:
+  files:
+    devcon.exe: 551886804fd55a4b795cc2e465e8199bc798f71d5fda79f3c3ad853ca14c31cd
+    diruse.exe: b8240ccba03ee8cf8b1f281f3a517be42798c792d7925043d9eb6dcbb56955c3
+windows_flexera_2017R1:
+  files:
+    - FlexNet_Inventory_Agent.msi
+    - Data1.cab
+    - mgssetup.ini
+    - setup.exe
+    - Setup.ini
+windows_hardening:
+  registry:
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Security:
+      reg.present:
+        - vname: retention
+        - vdata: 0
+        - vtype: REG_DWORD
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application:
+      reg.present:
+        - vname: retention
+        - vdata: 0
+        - vtype: REG_DWORD
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\System:
+      reg.present:
+        - vname: retention
+        - vdata: 0
+        - vtype: REG_DWORD
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\Activation:
+      reg.present:
+        - vname: Manual
+        - vdata: 1
+        - vtype: REG_DWORD
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power:
+      reg.present:
+        - vname: HibernateEnabled
+        - vdata: 0
+        - vtype: REG_DWORD
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
+      reg.present:
+        - vname: IsInstalled
+        - vdata: 0
+        - vtype: REG_DWORD
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}:
+      reg.present:
+        - vname: IsInstalled
+        - vdata: 0
+        - vtype: REG_DWORD
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager:
+      reg.present:
+        - vname: DoNotOpenServerManagerAtLogon
+        - vdata: 1
+        - vtype: REG_DWORD
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters:
+      reg.present:
+        - vname: MaxFieldLength
+        - vdata: 65535
+        - vtype: REG_DWORD
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System:
+      reg.present:
+        - vname: EnableLUA
+        - vdata: 1
+        - vtype: REG_DWORD
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem:
+      reg.present:
+        - vname: NtfsDisableLastAccessUpdate
+        - vdata: 1
+        - vtype: REG_DWORD
+    HKEY_USERS\.DEFAULT\Control Panel\Desktop:
+      reg.present:
+        - vname: ScreenSaveActive
+        - vdata: '0'
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell:
+      reg.present:
+        - vname: ExecutionPolicy
+        - vdata: 'remotesigned'
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl:
+      reg.present:
+        - vname: CrashDumpEnabled
+        - vdata: 2
+        - vtype: REG_DWORD
+
+  # Set runcmd to true to add the value using reg add command
+  # This should only be used if Salt itself cannot set the value for some reason
+  registry_add_cmd:
+    Tcpip6_Parameters:
+      hive: HKEY_LOCAL_MACHINE
+      key: SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters
+      vname: DisabledComponents
+      vdata: 0xffffffff
+      vtype: REG_DWORD
+    Eventlog_Security_MaxSize:
+      hive: HKEY_LOCAL_MACHINE
+      key: SYSTEM\CurrentControlSet\Services\Eventlog\Security
+      vname: MaxSize
+      vdata: 20971520
+      vtype: REG_DWORD      
+    Eventlog_Application_MaxSize:
+      hive: HKEY_LOCAL_MACHINE
+      key: SYSTEM\CurrentControlSet\Services\Eventlog\Application
+      vname: MaxSize
+      vdata: 20971520
+      vtype: REG_DWORD
+    Eventlog_System_MaxSize:
+      hive: HKEY_LOCAL_MACHINE
+      key: SYSTEM\CurrentControlSet\Services\Eventlog\System
+      vname: MaxSize
+      vdata: 20971520
+      vtype: REG_DWORD
+    DoNotOpenInitialConfigurationTasksAtLogon:
+      hive: HKEY_LOCAL_MACHINE
+      key: SOFTWARE\Microsoft\ServerManager
+      vname: DoNotOpenInitialConfigurationTasksAtLogon
+      vdata: 1
+      vtype: REG_DWORD
+    MaxRequestBytes:
+      hive: HKEY_LOCAL_MACHINE
+      key: SYSTEM\CurrentControlSet\Services\HTTP\Parameters
+      vname: MaxRequestBytes
+      vdata: 65535
+      vtype: REG_DWORD
+SPLUNK:
+  DEPLOYMENT_SERVERS:
+    amer:
+      SERVER: "USPLALSPLKDS1.astrazeneca.net:8089"
+    emea:
+      SERVER: "SESKLSPLKDS1.astrazeneca.net:8089"
+    apac:
+      SERVER: "SGKCALSPLKDS1.astrazeneca.net:8089"
+  REPO: http://sesklpulpprd01.astrazeneca.net/pulp/isos/Splunk
+sysinternals:
+  files:
+    accesschk.exe: 03cba9a8bb79772942dcb812c70f09dbab34944e918b71450347ffab2aab9b0a
+    AccessEnum.exe: a4cc61f6c7ed716e4622e12b75f05ea17e79a45f0d8bd6855c340a30ec882b47
+    AdExplorer.chm: a89a59be46f8511e385427c942d352429072b5a83d501ca08463942abcf8e5a3
+    ADExplorer.exe: f841c5a21e605cedf3dc9f07766d28ec2cb7d753bbabc14585de23ffe3caec88
+    ADInsight.chm: 7f9c32bd71e48c6cd1aecbaeab7031a4604fc52651272e1446b6773fd6d5b5da
+    ADInsight.exe: e4ec9fabd29bc41c1875de28d37228badf59e87697d9ae9a17836ae5d35e359a
+    adrestore.exe: d6f2383412056bbfe4c0b2ead055782008ad4bb5f758c0c582e91c9624f9b5ec
+    Autologon.exe: 221a5cba280b88e237e89898e4d744725de05ae5d209e14b4bafab2350f08701
+    autoruns.chm: acdad33f41c24956c17013f604ddadd9455b1a46e612b78e9e1579f279b8e908
+    autoruns.exe: 065f7b6bb72b10988eef1cdae04fb8e596a6a7c9fb42db9854b0b0362f4a0fe0
+    autorunsc.exe: b2a154f56cdffba3dbe583118bf824b45ae98af67cc85732ba9b20baa7ef1d81
+    Bginfo.exe: 112eca16a54474ab97d5df2c23c3aee9760978a8355c8b2ee92706b2248abeb4
+    Cacheset.exe: 86ccaefa38445954555385ceb21d206b98175791d5f0895b0efabf0d4e40a675
+    Clockres.exe: 4d26b13f873ad3b8f5e06ed92dff018561fb7090a2a0d4d5e20a47b29b1773fe
+    Contig.exe: 68e81caae82b640850a238c3b47f9ef52b06a87ac8fe6734a02fa56e6a7e3418
+    Coreinfo.exe: 3ed84a9b6d64463dd99a9be6a994420b7e756624aade9f1e9f929d608c875548
+    ctrl2cap.amd.sys: 3040a653a711f6c5758d1f4212f92e74aae3e6fedf2bb97da01185f3e75f2d76
+    ctrl2cap.exe: e7f3e98c6e61e7e6fe363855b0ed67d6952683077dcda3a08fd181069b96126d
+    ctrl2cap.nt4.sys: aa12befeca6e3cc0a97add308aaf55c4b4a8b0a9504899412bd4b0b3feee56cd
+    ctrl2cap.nt5.sys: 8f1688446ebbb0b9673d060cfd94ee6be45abca1adaf66dbbc5014ac4f01eda0
+    dbgview.chm: e439d04d29c173ad2b4ffbaa74ce6d2312f0ed9d92ef34abdbc58d41b9b0a1cc
+    Dbgview.exe: 993e8a67f1114f00004a8674a129b8a7ae227f590100cde571f9c2abc67205be
+    Desktops.exe: 138006408b1220536fa2c57b0341c72713e1b07564c31575f7a534f03456ab15
+    Disk2vhd.chm: f3e2625a1c3deb8a0a59c84acf2a64d10ccecaa6345b5b3ecef561fe3bbe494c
+    disk2vhd.exe: 18d1c2d1f8d435d72edebf591b5dfd9cd33a64773b9c0cf1201596699d0aee25
+    diskext.exe: 8b65a56c6ea1a52d7a91a873f7ace12a28837c1a66fba0bf383309be7b7ca891
+    Diskmon.exe: 955faa2fcec977b29fb7dc49a80b8c7916c410b70ad973c7883ed8537126f81f
+    DISKMON.HLP: 33278d846bb91e5746ca2baf78853e5b52ab0fdd7b02a938154c082ec7d85024
+    DiskView.exe: d186dac0a61eb1331d1371c733ec4b1925baed55f3c17f67efece537496050ff
+    DMON.SYS: 23417fe51bfcc5eeb16a65c3e583d15afe9a7370fa388db10900e59fcf9044b6
+    du.exe: b9d9c569dcc768041911ca07c9728235dcd855934d63dbe7d4a910db920cbb5b
+    efsdump.exe: efc0894bc8ecdf7709b35e20436a8d2ea0a046fdcec0f0c4385a03bd05833897
+    Eula.txt: 6ff22c87fb5ee105b33346dbb3f13f3049a292981e9df1eb8591e858ccf4d782
+    FindLinks.exe: cc2fcfa0e629d8df76377e610a0a973588ad1b087700dfb10f3780926e3da387
+    handle.exe: 4690b6fca6898297eb31259c7fad2edaea5308ff8628c12c4586c5fc9902247e
+    hex2dec.exe: 85809677236f6d51369f1ee5aafc0b010516a3cd9edcc696b5b461c2914eb060
+    junction.exe: 343c0764df76f631702dfd15c52004e65792a1e033f5ae2c8925f35301364a64
+    ldmdump.exe: 980e64020cfceb02652a2a08270b84b974f18f290e9cb798f5d46d3aa3a0ec94
+    Listdlls.exe: 020d4b225126f93254a15dae24c80c0b889d945f7a3e552e3b0f2b35939a8d2b
+    livekd.exe: 3eec7463bab7b6a52f406bd04eeb0699cebf299df8589a2db42e8b4ad89c5b7d
+    LoadOrd.exe: ff5fc78a10dc5e3421e72ce3b48f6a63ba5ae849aad148ab62ac039e0fe0803d
+    logonsessions.exe: 4296ecb7bd7baf0bfeb364a88b4c87695e5f16f193e5ac954e8a51bd5d58db54
+    movefile.exe: 9b51a2e2a8a89849ae3d39fc35fe583c65d50c2f234cf1ca65fc10a02a142f5e
+    ntfsinfo.exe: d994d2e1559bc997670f5ce7fb553f2f31878a1ddbc90793c3b9242db44aadd5
+    pagedfrg.exe: 19ce7dffdc417dc1ec126d9e1390f05f931b15ac5f67e8b528dfe55b6bfc3d38
+    pagedfrg.hlp: b7b8c0acfdd60fdb826f69d1d6396a0c6d8a6ba712d561b7bd2041767549a03d
+    pendmoves.exe: ed08fb5cd5088de71fa6bf083e171b03681941406fddf43beaa20bb1ff765705
+    pipelist.exe: 750aa0302e59da6c3e853c89c76c5f44125394c34cb0a8c70d756b3064f7cdff
+    PORTMON.CNT: 0129cf544234e91ce119940a6f2cc9842ecbb3723f9de9b62fd985c8ad02a21b
+    portmon.exe: 39bfb7dbec639d6d1a19005b8e1eb5b2b7cb2b59119e032e6e2986673e2e7993
+    PORTMON.HLP: 4e55c9b6a6147766b0cd6af4a8691408feb17afb196658291bf186ff106312e5
+    PORTMSYS.SYS: 80969ec975c15718dc14136b7e1533ffd3e1530e1a1f6b1411ed3ee0f55016e6
+    procdump.exe: 6147ab0c3bfed86a762ad49f4e204878ff9a930baf81daa6666b864c7f4ab1d8
+    procexp.chm: a8f4bd956816960691bc08bf94be342a6d62bf6d91c92f7e7506903ffda50b83
+    procexp.exe: 233cd5b4152fd8ec7f4fbd7cebcb3b81cf049aa8b94d2e17284ebf7377953048
+    procmon.chm: bf013033b89fcefdaf4c3a43d13367ec0c4074d8978dacececc39c5ed084cfbf
+    Procmon.exe: a8898d37f8b0d3b534128abe4f086d7cb7c76c7918df28c015c3f47f9be69880
+    PsExec.exe: 3337e3875b05e0bfba69ab926532e3f179e8cfbf162ebb60ce58a0281437a7ef
+    PsExec64.exe: ad6b98c01ee849874e4b4502c3d7853196f6044240d3271e4ab3fc6e3c08e9a4
+    psfile.exe: 9d45453285ff3b4a41056317c96866d06481751307d703e3355b18d5eeb092ad
+    psfile64.exe: 033b81744e0bd4219a4d698894b8403bb67b525c96049cbfef34677d4d6fc85c
+    PsGetsid.exe: d5c50620a1391b1f1797fd00a4bb93f5f1c64c9956e6d0882709b64a5facc435
+    PsGetsid64.exe: ba4327d879c7e306964100a3bd09d0c201c318e0b30ccc4b5994deb1a9df1df9
+    PsInfo.exe: 8f401dc021e20ff3abc64a2d346ef6a792a5643ca04ffd1f297e417532acaa06
+    PsInfo64.exe: ef5cf80c8448bf0907c634a3251cc348b1d36bb5ad8f31f23b11d12aa7f63bcb
+    pskill.exe: 546ec58d0134ea64611e12d7e3a867793e8cb6145ac18745349408a60fc2fabe
+    pskill64.exe: 75899c5ace600406503a937ef550ab0bbd0f6e0188b9e93e206beb1dfc79bb81
+    PsList.exe: 9927831e111ac61fd7645bf7efa1787db1a3e85b6f64a274ca04b213dc27fd08
+    pslist64.exe: e6901e8423da3e54bab25f7c90f60d3979bfa5bb61bcc46059662736253b8c72
+    PsLoggedon.exe: d689cb1dbd2e4c06cd15e51a6871c406c595790ddcdcd7dc8d0401c7183720ef
+    PsLoggedon64.exe: fdadb6e15c52c41a31e3c22659dd490d5b616e017d1b1aa6070008ce09ed27ea
+    psloglist.exe: 08a635a6e94423c6404215adfd60a5d48dd0743b0b8f6cea143f738d053d501e
+    pspasswd.exe: b2f17ab6396a5e5cd5be12f658c22cdfa2071d377cb8bd0ee76abbf82a9240a7
+    pspasswd64.exe: b5a01628e544929e2dff9f7041359d80f037e1e6da8afb97abd6b2b2f67960c4
+    psping.exe: c8453110682d999223a84146462b0b4fc6979f40a01b60a7b925783b71b2d6ff
+    psping64.exe: 6330fd6b82b3a1c91d2396c1ac096cd2e3775ca50baf8d223fa25a0258361126
+    PsService.exe: 9454ba56bcb470d330559573afbc10f6989ba46f3e656c20979de6f92e051752
+    PsService64.exe: 6de3137b3088b2c2c311a540f9aaeb57e9fd38259cb18875f2380ee74ec1c7af
+    psshutdown.exe: 66885c2b1773a6d02c3937e67b94b786fc64af17a7e8bad050be5149092a0117
+    pssuspend.exe: 02ec8c37dd946a2cd74673993c2108f12fff3e82019a1590231c4205ccb2f0d4
+    pssuspend64.exe: e93ddd9ed564b7f6532cd5b94cdce73067d8ebad8a5ce9373a6f839c7050780f
+    Pstools.chm: aa0ff7cc2486de77c9d4de54c18bc76bab085914028a80e06f6ea1609ea9a7a7
+    psversion.txt: 208469d3238653cc03607c08cdb4b5278ec1fde1c543b11cc3ae43a8a0e77a20
+    RAMMap.exe: 06dd28c3b0149d83036f2cbaa3379cfa6666f73bc095bfb5c4976e3991485b9e
+    readme.txt: 0f2ff4d516aa1d265c13805cebc2fe9042556c1bb7e8eb2e6c289d5255242ac9
+    RegDelNull.exe: 4455845bcff11d152752e6fc04e1bd7fb5c74ab6a17163b37c2199b73e11b1a0
+    regjump.exe: 9b0371abb4af0b840d574b8026132d0ee6667ee00f23253b64814e87314f4721
+    RootkitRevealer.chm: 637d4d96f73a2ea2f1f22f36fa39345fc0ae8aecd16e5f6b5a2b5f0553a59b1b
+    RootkitRevealer.exe: 0b3dfd1d00a0d5da5a88ee2b4734e817ee9c9b13f61eb04dc81660c22051fc27
+    sdelete.exe: 6e7ca1cc6fd03a1487d876ccd05c411c57ef1687a5c7e6ca007f00e2cb973fe8
+    ShareEnum.exe: 0f9dd9bf5b25c879cb5a4d8c7e436fdd95736665f3ceed3fd33e78455287378d
+    ShellRunas.exe: 4386a9b0539dc4b216525f8acd28972cac5ddccf2db9623b8cc559b53f575072
+    sigcheck.exe: 642027cb6f4a691cf47c8e0763b2a0318ae6d593ad1205dcf7e63e1b1cf5ea1a
+    streams.exe: 4cd6ed9bc9511094c9431dbfddeaaf9fd3c7881889ef1ed48e5dba8f3c1e7d27
+    strings.exe: 2a4cb46c65289a9dcd5fce83746d03efe75f43fc42bd388ab842e718dae688a0
+    sync.exe: 10f124100c9c82ea804e529f994ba4687a3028ae3ff12fc45e7781f47c90504f
+    Tcpvcon.exe: c9c3f0c4e7519d3a1f4ca427635f994a06613e94cb049f48c10151fab8888183
+    tcpview.chm: 77af8a6c9a4a806658f55e172ee37b3144a10d596a97d639aff708937c39004d
+    Tcpview.exe: c00d90c50a5e05d270b796645d5f12dee94a31ca94b8ddc90c91af1f9e208850
+    TCPVIEW.HLP: d9c7ee2f08b944466d81b8d87bf645fb91f219b143fb3f2bb1a38b9384357ea6
+    Vmmap.chm: 3a7618d52c9c0b50de7e9d263fd2afc017d0d446393263d8853453e15d00f551
+    vmmap.exe: dc2c7f85659a174e17052c95a3903d062ff9d51d147e83fc4cbcad0b88d77f6b
+    Volumeid.exe: 24bc7372df998eeb36789174d6fb80cbcfcb52ac2fa1b9bd29f7b592a1b2aeba
+    whois.exe: 06496725100db8f93c918252b0fadb6ad81b5855584ff4612028b3cf420e607c
+    Winobj.exe: 91b8d19a897cac6cfc638b0c195ee541e78781402e1d59dad7f3d532376f32d2
+    WINOBJ.HLP: 3541c0bc3c682552988be4823a3d3656de95d4d83078d53435ddab407f7313a3
+    ZoomIt.exe: c98d2040a12be41728a5347afb092cc74dde08c7a55011021f76c751a0a79efc
+tanium:
+  files:
+    - SetupClient.exe
+    - tanium.pub
+windows_users:
+  Administrator:
+    password: pulm!c0rt@Z
+#IIS
+windows_iis:
+  inetpubfolders:
+    source:  C:\inetpub
+    target:  D:\inetpub
+
+  inetpubsubfolders:
+    folders: 
+      - D:\inetpub\custerr\en-us
+      - D:\inetpub\history
+      - D:\inetpub\logs\W3Clogfiles
+      - D:\inetpub\logs\FailedReqlogFiles
+      - D:\inetpub\temp\appPools
+      - D:\inetpub\temp\ASP Compiled Templates
+      - D:\inetpub\temp\IIS Temporary Compressed Files
+      - D:\inetpub\websites
+    
+  inetpubftpsubfolders:
+    folders: 
+      - D:\inetpub\custerr\en-us
+      - D:\inetpub\ftpsites
+      - D:\inetpub\history
+      - D:\inetpub\logs\W3Clogfiles
+      - D:\inetpub\logs\ftplogfiles
+      - D:\inetpub\logs\FailedReqlogFiles
+      - D:\inetpub\temp\appPools
+      - D:\inetpub\temp\ASP Compiled Templates
+      - D:\inetpub\temp\IIS Temporary Compressed Files
+      - D:\inetpub\websites
+    
+  inetsrvfolders:
+    folders:
+      source:  C:\Windows\System32\inetsrv
+      wow64source:  C:\Windows\SysWOW64\inetsrv
+
+# Windows Features to install Web and ftp
+  web:
+    features:
+      - Web-Server
+      - Web-WebServer
+      - Web-Common-Http
+      - Web-Default-Doc
+      - Web-Dir-Browsing
+      - Web-Static-Content
+      - Web-Http-Redirect
+      - Web-Health
+      - Web-Http-Logging
+      - Web-Log-Libraries
+      - Web-Request-Monitor
+      - Web-Http-Tracing
+      - Web-Performance
+      - Web-Stat-Compression
+      - Web-Security
+      - Web-Filtering
+      - Web-Basic-Auth
+      - Web-IP-Security
+      - Web-Windows-Auth
+      - Web-App-Dev
+      - Web-AppInit
+      - Web-ASP
+      - Web-ISAPI-Ext
+      - Web-ISAPI-Filter
+      - Web-Includes
+      - Web-Mgmt-Console
+      - Web-Scripting-Tools
+      - Web-Asp-Net45
+      - WAS
+      - WAS-Config-APIs
+      - PowerShell-V2
+      - NET-HTTP-Activation 
+
+  ftp:
+    features:
+      - Web-Ftp-Server
+      - Web-Ftp-Ext
+      - Web-Mgmt-Tools
+      - WAS-Process-Model
+
+  httperrors:
+    statusCode:
+      - 401
+      - 403
+      - 404
+      - 405
+      - 406
+      - 412
+      - 500
+      - 501
+      - 502
+
+  requestFiltering:
+    verbs:
+      - GET
+      - POST
+      - HEAD
+      - CONNECT
+      - PUT
+      - DELETE
+      - TRACE
+      - OPTIONS
+    
+  sqldenystrings:
+    string:
+      - '--'
+      - ';'
+      - '/*'
+      - '@'
+      - char
+      - alter
+      - begin
+      - cast
+      - create
+      - cursor
+      - declare
+      - delete
+      - drop
+      - end
+      - exec
+      - fetch
+      - insert
+      - kill
+      - open
+      - select
+      - sys
+      - table
+      - update
+#MSSQL
+MSSQL:
+  INSTANCE: MSSQLSERVER
+  DBVERSION: 2014
+  DBEDITION: STD
+  SQLCOLLATION: SQL_Latin1_General_CP1_CI_AS
+  SAPWD: Astra@123
+  INSTALLACCOUNT: 'Astrazeneca\XAZVCSVC'
+  INSTALLACCOUNTPW: 'Luu3EnF28L'
+  ADSQLACCOUNTS: '"ASTRAZENECA\XAZHPDPSVC" "EMEA\XAZ-ECAP-DBA-SQL-PROD" "ASTRAZENECA\XAZ-CSIS Hybrid Operation-Server Administrators"'
+  ADWINACCOUNTS: '"EMEA\XAZ-ECAP-DBA-SQL-PROD"'
+  USERACCOUNT: 'N/A'
+  SERVICEACCOUNT: 'N/A'
+  SERVICEACCOUNTPW: 'N/A'
+  SQLENGINE: YES
+  SQLSSMS: YES
+  SQLAS: NO
+  SQLRS: NO
+  SQLIS: NO
+  SQLFEATUREENGINE: 'SQLENGINE,REPLICATION,FULLTEXT,CONN,BC,SDK,DQ'
+  SQLFEATURESSMS: ',SSMS,ADV_SSMS'
+  SQLFEATUREAS: ',AS'
+  SQLFEATURERS: ',RS'
+  SQLFEATUREIS: ',IS'
+  SQLTASK: 'N/A'
+  enrollment_hostgroups_SQL: SQL_WINDOWS
+  REGIONSERVICEACCOUNT:
+    amer:
+      USER: 'AMERICAS\kzfj062'
+      PW: '4CYYhcfOu0'
+    emea:
+      USER: 'EMEA\kwhf108'
+      PW: 'vhTp32BZnZ'
+    apac:
+      USER: 'ASIAPAC\krln295'
+      PW: 'G9NyYA4ZTR'
