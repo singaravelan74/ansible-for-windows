@@ -15,7 +15,6 @@
       vars: 
         msg: |
             nodename: {{ ansible_facts['nodename'] }}
-            ipv4address: {{ ansible_facts["eth0"]["ipv4"]["address"] }}
       debug: 
         msg: "{{ msg.split('\n') }}"       
       tags: debug_info
