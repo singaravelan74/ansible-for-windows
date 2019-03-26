@@ -419,3 +419,441 @@ MSSQL:
     apac:
       USER: 'ASIAPAC\krln295'
       PW: 'G9NyYA4ZTR'
+# DC name to timezone mapping
+# A country may have multiple timezones, but a DC is always in one TZ
+common:
+  hosting:
+    aedu: vm
+    arbn: vm
+    arvn: vm
+    atvi: vm
+    ausy: vm
+    bebu: vm
+    bgso: vm
+    brcz: vm
+    camg: vm
+    chzg: vm
+    clsa: vm
+    cnaw: aws
+    cnbj: vm
+    cncd: vm
+    cndc: vm
+    cndl: vm
+    cngz: vm
+    cntj: vm
+    cntz: vm
+    cnwx: vm
+    cnwy: vm
+    cobo: vm
+    cobw: vm
+    crsj: vm
+    csbg: vm
+    czpg: vm
+    debh: vm
+    dewe: vm
+    dkal: vm
+    dkso: vm
+    dzag: vm
+    eetl: vm
+    egca: vm
+    egso: vm
+    egop: vm
+    esbc: vm
+    esmd: vm
+    esmp: vm
+    fihe: vm
+    frdk: vm
+    frpa: vm
+    frri: vm
+    gras: vm
+    grat: vm
+    hkhg: vm
+    hrza: vm
+    hutb: vm
+    idck: vm
+    idja: vm
+    iecd: aws
+    iedb: vm
+    ilta: vm
+    inbg: vm
+    inch: vm
+    inye: vm
+    itml: vm
+    joam: vm
+    jpct: vm
+    jpmh: vm
+    jpok: vm
+    kazv: vm
+    krso: vm
+    lebe: vm
+    ltvl: vm
+    lvrg: vm
+    maca: vm
+    mxgd: vm
+    mxkn: vm
+    mxlv: vm
+    mxps: vm
+    mykl: vm
+    mypj: vm
+    nlca: vm
+    nlnj: vm
+    nlos: vm
+    nlzm: vm
+    noos: vm
+    peli: vm
+    phmm: vm
+    plwx: vm
+    prcf: vm
+    ptlb: vm
+    robu: vm
+    rumt: vm
+    ruvo: vm
+    sari: vm
+    seml: vm
+    sesk: vm
+    seso: vm
+    sgaw: aws
+    sgcs: vm
+    sgkc: vm
+    sgsg: vm
+    silj: vm
+    skbr: vm
+    thbk: vm
+    tris: vm
+    twtp: vm
+    uakv: vm
+    ukah: vm
+    ukap: vm
+    ukav: vm
+    ukba: vm
+    ukbm: vm
+    ukca: vm
+    ukch: vm
+    ukcm: vm
+    ukdv: vm
+    ukhp: vm
+    ukht: vm
+    ukhw: vm
+    ukli: vm
+    uklo: vm
+    ukmc: vm
+    ukmi: vm
+    ukmw: vm
+    ukps: vm
+    ukwd: vm
+    usbl: vm
+    usbo: vm
+    usca: vm
+    uscv: aws
+    usde: vm
+    usdu: vm
+    usfd: vm
+    usmd: vm
+    usgb: vm
+    uslv: vm
+    usmo: vm
+    usmv: vm
+    usoh: vm
+    uspd: vm
+    uspl: vm
+    usre: vm
+    ussa: vm
+    ussc: vm
+    ussm: vm
+    usun: vm
+    usuw: vm
+    uswa: vm
+    uswc: vm
+    uswr: vm
+    uymv: vm
+    vecc: vm
+    vnhc: vm
+    zajo: vm
+# Country code (first 2 letters of nodename) to region mapping
+common:
+  regions:
+    ae: emea  # UAE
+    ar: amer  # Argentina
+    at: emea  # Austria
+    au: apac  # Australia
+    be: emea  # Belgium
+    bg: emea  # Bulgaria
+    br: amer  # Brazil
+    ca: amer  # Canada
+    ch: emea  # Switzerland
+    cl: amer  # Chile
+    cn: apac  # China
+    co: amer  # Colombia
+    cr: amer  # Costa Rica
+    cs: emea  # Serbia
+    cz: emea  # Czech Republic
+    de: emea  # Germany
+    dk: emea  # Denmark
+    dz: emea  # Algeria
+    ee: emea  # Estonia
+    eg: emea  # Egypt
+    es: emea  # Spain
+    fi: emea  # Finland
+    fr: emea  # France
+    gr: emea  # Greece
+    hk: apac  # Hong Kong
+    hr: emea  # Croatia
+    hu: emea  # Hungary
+    id: apac  # Indonesia
+    ie: emea  # Ireland
+    il: emea  # Israel
+    in: apac  # India
+    it: emea  # Italy
+    jo: emea  # Jordan
+    jp: apac  # Japan
+    ka: emea  # Kazakhstan
+    kr: apac  # Korea
+    le: emea  # Lebanon
+    lt: emea  # Lithuania
+    lv: emea  # Latvia
+    ma: emea  # Morocco
+    mx: amer  # Mexico
+    my: apac  # Malaysia
+    nl: emea  # Netherlands
+    no: emea  # Norway
+    pe: amer  # Peru
+    ph: apac  # Philippines
+    pl: emea  # Poland
+    pr: amer  # Puerto Rico
+    pt: emea  # Portugal
+    ro: emea  # Romania
+    ru: emea  # Russia
+    sa: emea  # Saudi Arabia
+    se: emea  # Sweden
+    sg: apac  # Singapore
+    si: emea  # Slovenia
+    sk: emea  # Slovakia
+    th: apac  # Thailand
+    tr: emea  # Turkey
+    tw: apac  # Taiwan
+    ua: emea  # Ukraine
+    uk: emea  # UK
+    us: amer  # US
+    uy: amer  # Uruguay
+    ve: amer  # Venezuela
+    vn: apac  # Vietnam
+    za: emea  # South Africa# Country code (first 2 letters of nodename) to region mapping
+common:
+  regions:
+    ae: emea  # UAE
+    ar: amer  # Argentina
+    at: emea  # Austria
+    au: apac  # Australia
+    be: emea  # Belgium
+    bg: emea  # Bulgaria
+    br: amer  # Brazil
+    ca: amer  # Canada
+    ch: emea  # Switzerland
+    cl: amer  # Chile
+    cn: apac  # China
+    co: amer  # Colombia
+    cr: amer  # Costa Rica
+    cs: emea  # Serbia
+    cz: emea  # Czech Republic
+    de: emea  # Germany
+    dk: emea  # Denmark
+    dz: emea  # Algeria
+    ee: emea  # Estonia
+    eg: emea  # Egypt
+    es: emea  # Spain
+    fi: emea  # Finland
+    fr: emea  # France
+    gr: emea  # Greece
+    hk: apac  # Hong Kong
+    hr: emea  # Croatia
+    hu: emea  # Hungary
+    id: apac  # Indonesia
+    ie: emea  # Ireland
+    il: emea  # Israel
+    in: apac  # India
+    it: emea  # Italy
+    jo: emea  # Jordan
+    jp: apac  # Japan
+    ka: emea  # Kazakhstan
+    kr: apac  # Korea
+    le: emea  # Lebanon
+    lt: emea  # Lithuania
+    lv: emea  # Latvia
+    ma: emea  # Morocco
+    mx: amer  # Mexico
+    my: apac  # Malaysia
+    nl: emea  # Netherlands
+    no: emea  # Norway
+    pe: amer  # Peru
+    ph: apac  # Philippines
+    pl: emea  # Poland
+    pr: amer  # Puerto Rico
+    pt: emea  # Portugal
+    ro: emea  # Romania
+    ru: emea  # Russia
+    sa: emea  # Saudi Arabia
+    se: emea  # Sweden
+    sg: apac  # Singapore
+    si: emea  # Slovenia
+    sk: emea  # Slovakia
+    th: apac  # Thailand
+    tr: emea  # Turkey
+    tw: apac  # Taiwan
+    ua: emea  # Ukraine
+    uk: emea  # UK
+    us: amer  # US
+    uy: amer  # Uruguay
+    ve: amer  # Venezuela
+    vn: apac  # Vietnam
+    za: emea  # South Africa
+# DC name to timezone mapping
+# A country may have multiple timezones, but a DC is always in one TZ
+common:
+  timezones:
+    aedu: Asia/Dubai                       # UAE, Dubai
+    arbn: America/Argentina/Buenos_Aires   # Argentina, Haedo
+    arvn: America/Argentina/Buenos_Aires   # Argentina, Vedia
+    atvi: Europe/Vienna                    # Austria, Vienna
+    ausy: Australia/Sydney                 # Australia, Sydney
+    bebu: Europe/Brussels                  # Belgium, Brussels
+    bgso: Europe/Sofia                     # Bulgaria, Sofia
+    brcz: America/Sao_Paulo                # Brazil, Cotia
+    camg: America/Toronto                  # Canada, Mississauga
+    chzg: Europe/Zurich                    # Switzerland, Zug
+    clsa: America/Santiago                 # Chile, Santiago
+    cnaw: Asia/Shanghai                    # China, Beijing
+    cnbj: Asia/Shanghai                    # China, Beijing
+    cncd: Asia/Shanghai                    # China, Chendu
+    cndc: Asia/Shanghai                    # China, Shanghai
+    cndl: Asia/Shanghai                    # China, Dalian
+    cngz: Asia/Shanghai                    # China, Guangzhou
+    cntj: Asia/Shanghai                    # China, Tianjin
+    cntz: Asia/Shanghai                    # Chain, Taizhou
+    cnwx: Asia/Shanghai                    # China, Wuxi
+    cnwy: Asia/Shanghai                    # China, Wuxi CDC
+    cobo: America/Bogota                   # Colombia, Bogota
+    cobw: America/Bogota                   # Colombia, Bogota Warehouse
+    crsj: America/Costa_Rica               # Costa Rica, San Jose
+    csbg: Europe/Belgrade                  # Serbia, Belgrade
+    czpg: Europe/Prague                    # Czech Republic, Prague
+    debh: Europe/Berlin                    # Germany, Bad Homburg
+    dewe: Europe/Berlin                    # Germany, Wedel
+    dkal: Europe/Copenhagen                # Denmark, Copenhagen
+    dkso: Europe/Copenhagen                # Denmark, Soborg
+    dzag: Africa/Algiers                   # Algeria, Algiers
+    eetl: Europe/Tallinn                   # Estonia, Tallinn
+    egca: Africa/Cairo                     # Egypt, Cairo
+    egop: Africa/Cairo                     # Egypt, 6thofOctober
+    egso: Africa/Cairo                     # Egypt, 6th October City
+    esbc: Europe/Madrid                    # Spain, Barcelona
+    esmd: Europe/Madrid                    # Spain, Madrid
+    esmp: Europe/Madrid                    # Spain, Madrid Mediclin 
+    fihe: Europe/Helsinki                  # Finland, Helsinki
+    frdk: Europe/Paris                     # France, Dunkerque
+    frpa: Europe/Paris                     # France, Paris
+    frri: Europe/Paris                     # France, Reims
+    gras: Europe/Athens                    # Greece, Kyrolis Hill
+    grat: Europe/Athens                    # Greece, Athens
+    hkhg: Asia/Hong_Kong                   # Hong Kong, Hong Kong
+    hrza: Europe/Zagreb                    # Croatia, Zagreb
+    hutb: Europe/Budapest                  # Hungary, Torokbalint
+    idck: Asia/Jakarta                     # Indonesia, Cikarang
+    idja: Asia/Jakarta                     # Indonesia, Jakarta
+    iecd: Europe/Dublin                    # Ireland, Dublin AWS
+    iedb: Europe/Dublin                    # Ireland, Dublin
+    ilta: Asia/Jerusalem                   # Israel, Tel Aviv
+    inbg: Asia/Kolkata                     # India, Bangalore
+    inch: Asia/Kolkata                     # India, Chennai
+    inye: Asia/Kolkata                     # India, Yelanka
+    itml: Europe/Rome                      # Italy, Milan
+    joam: Asia/Amman                       # Jordan, Amman
+    jpct: Asia/Tokyo                       # Japan, Tokyo
+    jpmh: Asia/Tokyo                       # Japan, Maihara
+    jpok: Asia/Tokyo                       # Japan, Osaka
+    kazv: Asia/Almaty                      # Kazakhstan, Almaty
+    krso: Asia/Seoul                       # Korea, Seoul
+    lebe: Asia/Beirut                      # Lebanon, Beirut
+    ltvl: Europe/Vilnius                   # Lithuania, Vilnius
+    lvrg: Europe/Riga                      # Latvia, Riga
+    maca: Africa/Casablanca                # Morocco, Casablanca
+    mxgd: America/Mexico_City              # Mexico, Guadalajara
+    mxkn: America/Mexico_City              # Mexico, Mexico Warehouse
+    mxlv: America/Mexico_City              # Mexico, Lomas Verdes
+    mxps: America/Mexico_City              # Mexico, Periferico Sur
+    mykl: Asia/Kuala_Lumpur                # Malaysia, Kuala Lumpur
+    mypj: Asia/Kuala_Lumpur                # Malaysia, Petaling Jaya
+    nlca: Europe/Amsterdam                 # Netherlands, Azure
+    nlnj: Europe/Amsterdam                 # Netherlands, Nijmegen
+    nlzm: Europe/Amsterdam                 # Netherlands, Zoetermeer
+    nlos: Europe/Amsterdam                 # Netherlands, OSS
+    noos: Europe/Oslo                      # Norway, Oslo
+    peli: America/Lima                     # Peru, Lima
+    phmm: Asia/Manila                      # Philippines, Manila
+    plwx: Europe/Warsaw                    # Poland, Warsaw
+    prcf: America/Puerto_Rico              # Puerto Rico, Canovanas
+    ptlb: Europe/Lisbon                    # Portugal, Lisbon
+    robu: Europe/Bucharest                 # Romania, Bucharest
+    rumt: Europe/Moscow                    # Russia, Moscow
+    ruvo: Europe/Moscow                    # Russia, Vorsino
+    sari: Asia/Riyadh                      # Saudi Arabia, Riyadh
+    seml: Europe/Stockholm                 # Sweden, Molndal
+    sesk: Europe/Stockholm                 # Sweden, Skondal
+    seso: Europe/Stockholm                 # Sweden, Sodertalje
+    sgaw: Asia/Singapore                   # Singapore, Singapore AWS (Provided by Rohit)
+    sgcs: Asia/Singapore                   # Singapore, Singapore AWS
+    sgkc: Asia/Singapore                   # Singapore, Singapore PDC
+    sgsg: Asia/Singapore                   # Singapore, Singapore Office
+    silj: Europe/Ljubljana                 # Slovenia, Ljubljana
+    skbr: Europe/Bratislava                # Slovakia, Bratislava
+    thbk: Asia/Bangkok                     # Thailand, Bangkok
+    tris: Europe/Istanbul                  # Turkey, Istanbul
+    twtp: Asia/Taipei                      # Taiwan, Taipei
+    uakv: Europe/Kiev                      # Ukraine, Kiev
+    ukah: Europe/London                    # UK, Acadamy House
+    ukap: Europe/London                    # UK, Alderley Park
+    ukav: Europe/London                    # UK, Avlon
+    ukba: Europe/London                    # UK, Babraham
+    ukbm: Europe/London                    # UK, University of Cambridge
+    ukca: Europe/London                    # UK, Cambridge
+    ukch: Europe/London                    # UK, Chesterford
+    ukcm: Europe/London                    # UK, Granta Park
+    ukdv: Europe/London                    # UK, Da Vinci
+    ukhp: Europe/London                    # UK, Horizon Place
+    ukht: Europe/London                    # UK, Heathrow
+    ukhw: Europe/London                    # UK, High Wycombe
+    ukli: Europe/London                    # UK, Speke
+    uklo: Europe/London                    # UK, Spirogen
+    ukmc: Europe/London                    # UK, Macclesfield
+    ukmi: Europe/London                    # UK, Darwin
+    ukmw: Europe/London                    # UK, Macclesfield
+    ukps: Europe/London                    # UK, 2 St Pancras
+    ukwd: Europe/London                    # UK, West Drayton
+    usbl: America/Denver                   # US, Boulder
+    usbo: America/New_York                 # US, Waltham
+    usca: America/Los_Angeles              # US, Mountain View
+    uscv: America/New_York                 # US, US AWS
+    usde: America/Denver                   # US, Denver
+    usdu: America/New_York                 # US, Durham
+    usfd: America/New_York                 # US, Frederick
+    usgb: America/New_York                 # US, Gaithersburg
+    uslv: America/Kentucky/Louisville      # US, Louisville
+    usmo: America/New_York                 # US, Morristown
+    usmv: America/Chicago                  # US, Mount Vernon
+    usoh: America/New_York                 # US, Westchester
+    uspd: America/New_York                 # US, Red Lion
+    uspl: America/New_York                 # US, Philadelphia
+    usre: America/Los_Angeles              # US, Redwood
+    ussm: America/Los_Angeles              # US, San Mateo
+    ussa: America/Los_Angeles              # US, Saginaw
+    ussc: America/Vancouver                 # US, San Carlos
+    ussf: America/Los_Angeles              # US, San Francisco
+    usmd: America/New_York                 # US, Fredrick
+    usun: America/New_York                 # US, Newark
+    usuw: America/New_York                 # US, Wilmington
+    uswa: America/New_York                 # US, Washington DC
+    uswc: America/New_York                 # US, West Chester
+    uswr: America/Chicago                  # US, Wrangler
+    uymv: America/Montevideo               # Uruguay, Montevideo
+    vecc: America/Caracas                  # Venezuela, Caracas
+    vnhc: Asia/Ho_Chi_Minh                 # Vietnam, Ho Chi Minh City
+    zajo: Africa/Johannesburg              # South Africa, Johannesburg
