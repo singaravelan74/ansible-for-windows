@@ -12,7 +12,7 @@
         msg: "{{ msg.split('\n') }}"       
       tags: debug_info
     - name: Gather Hostname.Dc,Country
-      shell: echo $HOSTNAME
+      win_shell: $env:computername
       register: hostname
       
     - name: Print some jinja variable
