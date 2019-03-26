@@ -6,7 +6,8 @@
     - name: Print some debug information
       vars: 
         msg: |
-            pulprepo: {{ windows_repo.url }}
+            User: {{ MSSQL.REGIONSERVICEACCOUNT.amer.USER }}
+            Password: {{ MSSQL.REGIONSERVICEACCOUNT.amer.PW }}
       debug: 
         msg: "{{ msg.split('\n') }}"       
       tags: debug_info
