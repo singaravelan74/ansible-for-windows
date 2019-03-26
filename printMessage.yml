@@ -14,12 +14,10 @@
     - name: Print some jinja variable
       shell: echo $HOSTNAME
       register: hostname
-      {% set dc = {{ hostname }}[0:4]|lower %}
-      {% set country = dc[0:2] %}
       vars: 
         msg: |
-            DC: {{ dc }}
-            country: {{ country }}
+            DC: {{ hostname }}[0:4]|lower %}
+            country: {{ dc[0:2] }}
       debug: 
         msg: "{{ msg.split('\n') }}"       
-      tags: debug_info  
+      tags: debug_info
