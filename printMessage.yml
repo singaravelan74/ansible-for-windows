@@ -6,7 +6,7 @@
     - name: Print some debug information
       vars: 
         msg: |
-            morhost: {{ morhost }}
+            pulprepo: {{ windows_repo.url }}
       debug: 
         msg: "{{ msg.split('\n') }}"       
       tags: debug_info
