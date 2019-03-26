@@ -16,10 +16,5 @@
       register: hostname
       
     - name: Print some jinja variable
-      vars: 
-        msg: |
-            DC: {{ hostname }}[0:4]|lower %}
-            country: {{ dc[0:2] }}
       debug: 
-        msg: "{{ msg.split('\n') }}"       
-      tags: debug_info
+        msg: "{{ hostname }}"
