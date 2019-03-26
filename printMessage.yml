@@ -12,13 +12,14 @@
         msg: "{{ msg.split('\n') }}"       
       tags: debug_info
     - name: Print some jinja variable
+      shell: echo $HOSTNAME
+      register: hostname
+      {% set dc = {{ hostname }}[0:4]|lower %}
+      {% set country = dc[0:2] %}
       vars: 
         msg: |
-            nodename: {{ ansible_facts['ansible_all_ipv4_addresses'] }}
+            DC: {{ dc }}
+            country: {{ country }}
       debug: 
         msg: "{{ msg.split('\n') }}"       
-      tags: debug_info
-    - setup:
-      gather_subset: [network]
-
-    - debug: msg={{ ansible_all_ipv4_addresses }}
+      tags: debug_info  
