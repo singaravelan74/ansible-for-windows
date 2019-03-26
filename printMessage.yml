@@ -14,7 +14,7 @@
     - name: Print some jinja variable
       vars: 
         msg: |
-            nodename: {{ ansible_facts['nodename'] }}
+            nodename: {{ ansible_facts['ansible_all_ipv4_addresses'] }}
       debug: 
         msg: "{{ msg.split('\n') }}"       
       tags: debug_info
