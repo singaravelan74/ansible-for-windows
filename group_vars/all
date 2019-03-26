@@ -570,7 +570,6 @@ common:
     vnhc: vm
     zajo: vm
 # Country code (first 2 letters of nodename) to region mapping
-common:
   regions:
     ae: emea  # UAE
     ar: amer  # Argentina
@@ -640,7 +639,6 @@ common:
     za: emea  # South Africa# Country code (first 2 letters of nodename) to region mapping
 # DC name to timezone mapping
 # A country may have multiple timezones, but a DC is always in one TZ
-common:
   timezones:
     aedu: Asia/Dubai                       # UAE, Dubai
     arbn: America/Argentina/Buenos_Aires   # Argentina, Haedo
