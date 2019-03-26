@@ -1,7 +1,12 @@
-- name: Print some debug information 
-  vars: 
-    msg: |
-        morhost: {{ morhost }}
-  debug: 
-    msg: "{{ msg.split('\n') }}"       
-  tags: debug_info
+---
+- name: Print some debug information
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Print some debug information
+      vars: 
+        msg: |
+            morhost: {{ morhost }}
+      debug: 
+        msg: "{{ msg.split('\n') }}"       
+      tags: debug_info
