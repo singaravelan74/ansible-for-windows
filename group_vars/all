@@ -1,2 +1,6 @@
 service_name: Web-Server
 morhost: all
+windows_repo:
+  url: 'http://sesklpulpprd01.astrazeneca.net/pulp/isos'
+  url_SQL: 'http://sesklpulpprd01.astrazeneca.net/MSSQLServer'
+  url_SQL_nagios: 'http://sesklpulpprd01.astrazeneca.net/nsclient/'
