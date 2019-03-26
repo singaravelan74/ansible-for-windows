@@ -14,11 +14,12 @@
     - name: Gather Hostname.Dc,Country
       shell: echo $HOSTNAME
       register: hostname
+      
+    - name: Print some jinja variable
       vars: 
         msg: |
             DC: {{ hostname }}[0:4]|lower %}
             country: {{ dc[0:2] }}
-    - name: Print some jinja variable
       debug: 
         msg: "{{ msg.split('\n') }}"       
-      tags: debug_info 
+      tags: debug_info
