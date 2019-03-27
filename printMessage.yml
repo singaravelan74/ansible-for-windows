@@ -2,24 +2,9 @@
 - name: Print some debug information
   hosts: all
   gather_facts: false
+  vars: 
+    hostname: {{ morpheus.instance.hostname }}
   tasks:
     - name: Print some debug information
-      vars: 
-        msg: |
-            User: {{ MSSQL.REGIONSERVICEACCOUNT.amer.USER }}
-            Password: {{ MSSQL.REGIONSERVICEACCOUNT.amer.PW }}
       debug: 
-        msg: "{{ msg.split('\n') }}"       
-      tags: debug_info
-    - name: Gather Hostname.Dc,Country
-      win_shell: $env:computername
-      register: hostname
-      
-    - name: Print some jinja variable
-      vars: 
-        msg: |
-            DC: {{ hostname }}[0:4]|lower
-            country: {{ hostname }}[0:2]|lower
-      debug: 
-        msg: "{{ msg.split('\n') }}"       
-      tags: debug_info  
+        hostname: "{{ hostname }}"
