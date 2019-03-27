@@ -1,7 +1,25 @@
 ---
-- name: Gather Windows Facts
+- name: Print some debug information
   hosts: all
-  gather_facts: true
+  gather_facts: false
   tasks:
-    - debug: var=vars
-    - debug: var=hostvars[inventory_hostname]
+    - name: Print some debug information
+      vars: 
+        msg: |
+            User: {{ MSSQL.REGIONSERVICEACCOUNT.amer.USER }}
+            Password: {{ MSSQL.REGIONSERVICEACCOUNT.amer.PW }}
+      debug: 
+        msg: "{{ msg.split('\n') }}"       
+      tags: debug_info
+    - name: Gather Hostname.Dc,Country
+      shell: echo $HOSTNAME
+      register: hostname
+      
+    - name: Print some jinja variable
+      vars: 
+        msg: |
+            DC: {{ hostname }}[0:4]|lower %}
+            country: {{ dc[0:2] }}
+      debug: 
+        msg: "{{ msg.split('\n') }}"       
+      tags: debug_info
