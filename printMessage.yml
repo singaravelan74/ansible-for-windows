@@ -1,7 +1,7 @@
 ---
 - name: Print some debug information
   hosts: all
-  gather_facts: false
+  gather_facts: true
   vars: 
     hostname: {{ morpheus.instance.hostname }}
   tasks:
