@@ -1,14 +1,8 @@
 ---
 - name: Print some debug information
   hosts: all
-  gather_facts: false
+  gather_facts: true
   tasks:
     - name: Print some debug information
-      vars: 
-        msg: |
-            Module Variables ("vars"):
-            --------------------------------
-            {{ vars | to_nice_json }}
       debug: 
-        msg: "{{ msg.split('\n') }}"       
-      tags: debug_info
+        hostname: "{{ vars.morpheus.instance.hostname }}"
