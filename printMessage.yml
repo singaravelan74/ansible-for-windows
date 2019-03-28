@@ -1,10 +1,6 @@
 ---
-- name: Print some debug information
+- name: Gather Windows Facts
   hosts: all
   gather_facts: true
-  vars: 
-    hostname: {{ morpheus.instance.hostname }}
   tasks:
-    - name: Print some debug information
-      debug: 
-        hostname: "{{ hostname }}"
+    - debug: var=vars
