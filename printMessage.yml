@@ -10,6 +10,6 @@
         country: {{ ansible_hostname[0:2] | lower }}
             
     - name: Print variable
-      debug: 
-        msg: "{{ hostname }},{{ DC }},{{ country }}"       
-      tags: debug_info
+    - debug: msg="{{ hostname | lower  }}"
+    - debug: msg="{{ ansible_hostname[0:4] | lower  }}"
+    - debug: msg="{{ ansible_hostname[0:2] | lower  }}"
