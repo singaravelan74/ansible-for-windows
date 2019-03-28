@@ -1,3 +1,4 @@
+harden_win_adobereader_v: 'DC'
 service_name: Web-Server
 morhost: all
 windows_repo:
