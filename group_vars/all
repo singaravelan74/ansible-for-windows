@@ -1,8 +1,8 @@
 service_name: Web-Server
 morhost: all
 hostname: {{ ansible_hostname | lower }}
-DC: {{ ansible_hostname[0:4] | lower  }}
-country: {{ ansible_hostname[0:2] | lower }}
+DC: {{ hostname[0:4] | lower  }}
+country: {{ DC[0:2] | lower }}
 windows_repo:
   url: 'http://sesklpulpprd01.astrazeneca.net/pulp/isos'
   url_SQL: 'http://sesklpulpprd01.astrazeneca.net/MSSQLServer'
