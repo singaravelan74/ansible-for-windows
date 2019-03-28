@@ -3,12 +3,13 @@
   hosts: all
   gather_facts: true
   tasks:
-    - name: Print some jinja variable
+    - name: Define variable
       vars: 
-        msg: |
-            hostname: {{ ansible_hostname | lower }}
-            DC: {{ ansible_hostname[0:4] | lower  }}
-            country: {{ ansible_hostname[0:2] | lower }}
+        hostname: {{ ansible_hostname | lower }}
+        DC: {{ ansible_hostname[0:4] | lower  }}
+        country: {{ ansible_hostname[0:2] | lower }}
+            
+    - name: Print variable
       debug: 
-        msg: "{{ msg.split('\n') }}"       
+        msg: "{{ hostname }},{{ DC }},{{ country }}"       
       tags: debug_info
