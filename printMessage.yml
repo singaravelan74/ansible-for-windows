@@ -3,9 +3,7 @@
   hosts: all
   gather_facts: true
   tasks:
-    - name: Gather vars variable information
-      vars:
-        hostname: "{{ vars.morpheus.instance.hostname }}"
     - name: Print vars variable information
       debug: 
-        hostname: "{{ hostname }}" 
+        var: hostvars[inventory_hostname]  
+      tags: debug_info
