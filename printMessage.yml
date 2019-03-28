@@ -1,9 +1,14 @@
 ---
 - name: Print some debug information
   hosts: all
-  gather_facts: true
+  gather_facts: false
   tasks:
-    - name: Print vars variable information
+    - name: Print some debug information
+      vars: 
+        msg: |
+            Environment Variables ("environment"):
+            --------------------------------
+            {{ environment | to_nice_json }}
       debug: 
-        var: {{ hostvars[inventory_hostname] | to_nice_json }}
+        msg: "{{ msg.split('\n') }}"       
       tags: debug_info
