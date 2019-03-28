@@ -4,14 +4,6 @@
   gather_facts: true
   tasks:
     - name: Print some jinja variable
-      vars: 
-        msg: |
-            hostname: {{ ansible_hostname | lower }}
-            DC: {{ ansible_hostname[0:4] | lower  }}
-            country: {{ ansible_hostname[0:2] | lower }}
-            
       debug: 
-        "{{ ansible_hostname | lower }}"
-        "{{ ansible_hostname[0:4] | lower  }}"
-        "{{ ansible_hostname[0:2] | lower }}"
+        hostname: "{{ ansible_hostname }}"       
       tags: debug_info 
