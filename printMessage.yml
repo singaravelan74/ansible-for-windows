@@ -5,9 +5,10 @@
   tasks:
     - name: Print some jinja variable
       vars: 
-        hostname: {{ ansible_hostname | lower }}
-        DC: {{ ansible_hostname[0:4] | lower  }}
-        country: {{ ansible_hostname[0:2] | lower }}
+        msg: |
+            hostname: {{ ansible_hostname | lower }}
+            DC: {{ ansible_hostname[0:4] | lower  }}
+            country: {{ ansible_hostname[0:2] | lower }}
       debug: 
-        msg: "{{ hostname }}"       
+        msg: "{{ msg.hostname }}"       
       tags: debug_info
