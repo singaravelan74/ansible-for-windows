@@ -3,15 +3,12 @@
   hosts: all
   gather_facts: true
   tasks:
-    - name: Gather Hostname.Dc,Country
-      win_shell: $env:computername
-      register: hostname
     - name: Print some jinja variable
       vars: 
         msg: |
+            hostname: {{ ansible_hostname | lower }}
             DC: {{ hostname.stdout[0:4] | lower  }}
             country: {{ hostname.stdout[0:2] | lower }}
-            hostname1: {{ ansible_hostname | lower }}
       debug: 
         msg: "{{ msg.split('\n') }}"       
-      tags: debug_info 
+      tags: debug_info
