@@ -6,9 +6,9 @@
     - name: Print some debug information
       vars: 
         msg: |
-            Environment Variables ("environment"):
+            HOST Variables ("hostvars"):
             --------------------------------
-            {{ environment | to_nice_json }}
+            {{ hostvars | to_nice_json }} 
       debug: 
         msg: "{{ msg.split('\n') }}"       
       tags: debug_info
