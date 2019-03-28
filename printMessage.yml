@@ -3,7 +3,23 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Display all variables/facts known for a host
+    - name: Print some debug information
+      vars: 
+        msg: |
+            User: {{ MSSQL.REGIONSERVICEACCOUNT.amer.USER }}
+            Password: {{ MSSQL.REGIONSERVICEACCOUNT.amer.PW }}
       debug: 
-        var: hostvars[inventory_hostname]  | to_nice_json     
+        msg: "{{ msg.split('\n') }}"       
       tags: debug_info
+    - name: Gather Hostname.Dc,Country
+      win_shell: $env:computername
+      register: hostname
+      
+    - name: Print some jinja variable
+      vars: 
+        msg: |
+            DC: {{ hostname }}[0:4]|lower
+            country: {{ hostname }}[0:2]|lower
+      debug: 
+        msg: "{{ msg.split('\n') }}"       
+      tags: debug_info 
