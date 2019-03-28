@@ -3,10 +3,7 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Print some debug information
-      vars: 
-        msg: |
-            {{ hostvars | to_nice_json }} 
+    - name: Display all variables/facts known for a host
       debug: 
-        msg: "{{ msg.split('\n') }}"       
+        var: hostvars[inventory_hostname]       
       tags: debug_info
