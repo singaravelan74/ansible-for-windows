@@ -9,8 +9,8 @@
     - name: Print some jinja variable
       vars: 
         msg: |
-            DC: "{{ hostname.stdout[0:4]  }}" | lower
-            country: "{{ hostname.stdout[0:2] }}" | lower
+            DC: {{ hostname.stdout[0:4] | lower  }}
+            country: {{ hostname.stdout[0:2] | lower }}
       debug: 
         msg: "{{ msg.split('\n') }}"       
       tags: debug_info 
