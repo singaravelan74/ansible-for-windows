@@ -6,10 +6,6 @@
     - name: Define variable
       vars: 
         hostname: {{ ansible_hostname | lower }}
-        DC: {{ ansible_hostname[0:4] | lower  }}
-        country: {{ ansible_hostname[0:2] | lower }}
-            
-    - name: Print variable
     - debug: msg="{{ hostname | lower  }}"
     - debug: msg="{{ ansible_hostname[0:4] | lower  }}"
     - debug: msg="{{ ansible_hostname[0:2] | lower  }}"
