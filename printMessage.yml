@@ -10,5 +10,5 @@
             DC: {{ ansible_hostname[0:4] | lower  }}
             country: {{ ansible_hostname[0:2] | lower }}
       debug: 
-        msg: "{{ msg.hostname }}"       
+        msg: "{{ msg.split('\n') }}"       
       tags: debug_info
