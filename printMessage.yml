@@ -5,5 +5,5 @@
   tasks:
     - name: Print some jinja variable
       debug: 
-        msg: "{{ ansible_hostname }}"       
+        msg: "{{ hostname }}"       
       tags: debug_info 
