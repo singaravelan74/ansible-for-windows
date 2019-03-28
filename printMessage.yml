@@ -11,6 +11,7 @@
         msg: |
             DC: {{ hostname.stdout[0:4] | lower  }}
             country: {{ hostname.stdout[0:2] | lower }}
+            hostname1: {{ ansible_hostname | lower }}
       debug: 
         msg: "{{ msg.split('\n') }}"       
       tags: debug_info 
