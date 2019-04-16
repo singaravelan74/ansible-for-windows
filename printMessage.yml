@@ -4,4 +4,5 @@
   gather_facts: true
   tasks:
     - name: Define variable
-      debug: msg="{{ morpheus['instance']['hostname'] | lower  }}"
+      vars: hostname="{{ morpheus['instance']['hostname']  }}"
+      debug: msg="{{ hostname | lower  }}"
