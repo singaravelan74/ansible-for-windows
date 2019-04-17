@@ -1,8 +1,6 @@
 ---
 - name: Print some debug information
   hosts: all
-  vars: 
-    hostname: "{{ morpheus['instance']['hostname']  }}"
   tasks:
     - name: Define variable
       debug:
