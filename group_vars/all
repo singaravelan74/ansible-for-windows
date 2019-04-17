@@ -1,6 +1,6 @@
 service_name: Web-Server
 morhost: all
-hostname: {{ morpheus['instance']['hostname']  }}
+hostname: "{{ morpheus['instance']['hostname']  }}"
 
 windows_repo:
   url: 'http://sesklpulpprd01.astrazeneca.net/pulp/isos'
