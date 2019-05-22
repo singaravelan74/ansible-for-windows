@@ -3,7 +3,7 @@
   hosts: all
   vars: 
     files: "{{ windows_diruse.files.items()  }}"
-    repopath: "{{ windows_repo.url }}"
   tasks:
     - name: Define variable
-      - debug: msg="{{ lookup('env','HOME') }} is an environment variable"
+      debug:
+        msg: "{{ lookup('env','HOME') }} is an environment variable"
