@@ -1,7 +1,9 @@
-- name: Extend C Drive
-  hosts: windows
-  gather_facts: false
+---
+- name: Print some debug information
+  hosts: all
+  vars: 
+    hostname: "{{ morpheus['instance']['hostname']  }}"
   tasks:
-    - name: test var
-    debug:
-      var: windows_diruse[files]
+    - name: Define variable
+      debug:
+        msg: "{{ hostname | lower  }}"
