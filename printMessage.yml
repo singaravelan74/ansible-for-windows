@@ -2,14 +2,6 @@
   hosts: windows
   gather_facts: false
   tasks:
-    - name: Extend C Drive
-      win_shell: |
-        $cDriveSupportSize = $(Get-PartitionSupportedSize -DriveLetter "C").sizeMax
-        $cDriveSize = $(Get-Partition -DriveLetter "C").size
-        try{
-            if($cDriveSupportSize -gt $cDriveSize)
-            {
-                resize-Partition -Size $cDriveSupportSize -DriveLetter "C" -ErrorAction stop
-            }
-        }
-        catch{}
+    - name: test var
+    debug:
+      var: windows_diruse[files]
