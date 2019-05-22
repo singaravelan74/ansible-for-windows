@@ -6,4 +6,6 @@
   tasks:
     - name: Define variable
       debug:
-        msg: "{{ hostname | lower  }}"
+        {% for name, hash in windows_diruse.files.items() %}
+        msg: "{{ name | lower  }}"
+        {% endfor %}
