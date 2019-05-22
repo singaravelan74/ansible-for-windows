@@ -1,0 +1,26 @@
+---
+- name: Post Build Configuration for Windows Servers
+  hosts: windows
+  gather_facts: false
+  tasks:
+    - name: Define variable
+      debug:
+        msg: "{{ hostname | lower  }}"
+    - name: Remove all current pagefiles, enable AutomaticManagedPagefile and query at the end  
+      win_pagefile:
+        automatic: yes
+    - name: Enable firewall for Domain, Public and Private profiles
+      win_firewall:
+        automatic: yes
+    - name: Add a local and domain user to a local group  
+      win_group_membership:
+        name: Administrators
+        members:
+          - 'ASTRAZENECA\XAZ-CSIS IAM Hybrid Operation-Server Administrators'
+          - 'ASTRAZENECA\XAZ-CSIS Hybrid Operation-Server Administrators'
+          - 'ASTRAZENECA\XAZ-Global ECS-Wintel Server Administrators'
+          - 'ASTRAZENECA\XAZ-Global Wintel Permission Administrators'
+          - 'ASTRAZENECA\XAZ-Global Symantec Server Administrators'
+          - 'ASTRAZENECA\XAZ-Global ECS Backup Administrators '
+          - 'ASTRAZENECA\XAZ-Global Service Accounts'
+        state: present
