@@ -6,5 +6,4 @@
     repopath: "{{ windows_repo.url }}"
   tasks:
     - name: Define variable
-      debug:
-        msg: "{{ repopath  }}"
+      - debug: msg="{{ lookup('env','HOME') }} is an environment variable"
