@@ -11,7 +11,7 @@
         automatic: yes
     - name: Enable firewall for Domain, Public and Private profiles
       win_firewall:
-        automatic: yes
+        state: enabled
     - name: Add a local and domain user to a local group  
       win_group_membership:
         name: Administrators
