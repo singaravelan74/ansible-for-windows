@@ -6,6 +6,24 @@
     - name: Define variable
       debug:
         msg: "{{ hostname | lower  }}"
+    - name: Change CD-Rom Drive letter to Z
+      win_shell: |
+        $CDDrive = Get-WmiObject win32_volume | where {$_.DriveType -eq 5}
+        if ($CDDrive  -ne $null) {
+            $CDDrive.DriveLetter = "Z:";
+            $CDDrive.put()
+        }
+    - name: Extend C Drive
+      win_shell: |
+        $cDriveSupportSize = $(Get-PartitionSupportedSize -DriveLetter "C").sizeMax
+        $cDriveSize = $(Get-Partition -DriveLetter "C").size
+        try{
+            if($cDriveSupportSize -gt $cDriveSize)
+            {
+                resize-Partition -Size $cDriveSupportSize -DriveLetter "C" -ErrorAction stop
+            }
+        }
+        catch{}
     - name: Remove all current pagefiles, enable AutomaticManagedPagefile and query at the end  
       win_pagefile:
         automatic: yes
