@@ -1,11 +1,15 @@
-- name: Change CD-Rom Drive letter to Z
+- name: Extend C Drive
   hosts: windows
   gather_facts: false
   tasks:
-    - name: Change CD-Rom Drive letter to Z
+    - name: Extend C Drive
       win_shell: |
-        $CDDrive = Get-WmiObject win32_volume | where {$_.DriveType -eq 5}
-        if ($CDDrive  -ne $null) {
-            $CDDrive.DriveLetter = "Z:";
-            $CDDrive.put()
+        $cDriveSupportSize = $(Get-PartitionSupportedSize -DriveLetter "C").sizeMax
+        $cDriveSize = $(Get-Partition -DriveLetter "C").size
+        try{
+            if($cDriveSupportSize -gt $cDriveSize)
+            {
+                resize-Partition -Size $cDriveSupportSize -DriveLetter "C" -ErrorAction stop
+            }
         }
+        catch{}
