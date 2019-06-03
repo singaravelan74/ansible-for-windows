@@ -1,10 +1,8 @@
 ---
 - name: Print some debug information
   hosts: windows
-  vars: 
-    files: "{{ windows_diruse.files.items()  }}"
   tasks:
     - name: Define variable
       debug:
         msg: "{{ item }} is an environment variable"
-      with_items: "{{ files }}"
+      with_items: "{{ windows_diruse.files.items() }}"
