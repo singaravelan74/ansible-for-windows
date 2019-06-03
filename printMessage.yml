@@ -1,22 +1,9 @@
 ---
 - name: Print some debug information
-  hosts: all
+  hosts: windows
+  vars: 
+    files: "{{ windows_diruse.files.items()  }}"
   tasks:
-    - name: show dictionary
-      debug: msg="{{item.key}}: {{item.value}}"
-      with_dict: {a: 1, b: 2, c: 3}a
-
-  # with predefined vars
-  vars:
-    users:
-      alice:
-        name: Alice Appleworth
-        telephone: 123-456-7890
-      bob:
-        name: Bob Bananarama
-        telephone: 987-654-3210
-  tasks:
-    - name: Print phone records
+    - name: Define variable
       debug:
-        msg: "User {{ item.key }} is {{ item.value.name }} ({{ item.value.telephone }})"
-      loop: "{{ lookup('dict', users) }}"
+        msg: "{{ files }}"
