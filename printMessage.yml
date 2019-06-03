@@ -1,8 +1,6 @@
 ---
 - name: Print some debug information
   hosts: all
-  vars: 
-    files: "{{ windows_diruse.files.items()  }}"
   tasks:
     - name: show dictionary
       debug: msg="{{item.key}}: {{item.value}}"
