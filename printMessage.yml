@@ -4,5 +4,5 @@
   tasks:
     - name: Define variable
       debug:
-        msg: "{{ item }} is an environment variable"
+        msg: "{{ item.devcon.exe }} is an environment variable"
       with_items: "{{ windows_diruse.files.items() }}"
