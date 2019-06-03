@@ -6,4 +6,5 @@
   tasks:
     - name: Define variable
       debug:
-        msg: "{{ files }}"
+        msg: "{{ item }} is an environment variable"
+      with_items: "{{ files }}"
