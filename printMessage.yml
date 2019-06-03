@@ -6,4 +6,4 @@
   tasks:
     - name: Define variable
       debug:
-        msg: "{{ lookup('env','HOME') }} is an environment variable"
+        msg: "{{ files[devcon.exe] }} is an environment variable"
