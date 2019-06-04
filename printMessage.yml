@@ -4,5 +4,5 @@
   tasks:
     - name: Define variable
       debug:
-        msg: "{{ item }} is an environment variable"
-      with_items: "{{ windows_diruse.files.items() }}"
+        msg: "key {{ item.key }} has an value of {{ item.value }}"
+      loop: "{{ lookup('dict', "{{ windows_diruse.files.items() }}") }}"
