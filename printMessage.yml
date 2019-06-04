@@ -109,8 +109,3 @@
         url: " {{ windows_repo.url }}/DesktopInfo/DesktopInfo.lnk "
         dest: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\DesktopInfo.lnk"
         force: True
-    - name: Trigger DesktopInfo.lnk
-      win_command: "DesktopInfo.lnk"
-      args:
-        chdir: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
-        executable: cmd
