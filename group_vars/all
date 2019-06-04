@@ -15,10 +15,8 @@ windows_desktopinfo:
     readme.txt: 7efbb33cf1680030ec09b618b7fb82945fb3006ac5c39f6d74f56c8d30e8d44f
 windows_diruse:
   files:
-    -  name: devcon.exe
-       sha: 551886804fd55a4b795cc2e465e8199bc798f71d5fda79f3c3ad853ca14c31cd
-    -  name: diruse.exe
-       sha: b8240ccba03ee8cf8b1f281f3a517be42798c792d7925043d9eb6dcbb56955c3  
+    devcon.exe: 551886804fd55a4b795cc2e465e8199bc798f71d5fda79f3c3ad853ca14c31cd
+    diruse.exe: b8240ccba03ee8cf8b1f281f3a517be42798c792d7925043d9eb6dcbb56955c3  
 windows_flexera_2017R1:
   files:
     - FlexNet_Inventory_Agent.msi
