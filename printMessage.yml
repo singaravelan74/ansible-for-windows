@@ -4,5 +4,5 @@
   tasks:
     - name: Define variable
       debug:
-        msg: "name {{ item.key }} has an sha value of {{ item.value }}"
+        msg: "repo path is {{ windows_repo.url }} and name {{ item.key }} has an sha value of {{ item.value }}"
       with_dict: "{{ windows_diruse.files }}"
