@@ -110,7 +110,7 @@
         dest: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\DesktopInfo.lnk"
         force: True
     - name: Trigger DesktopInfo.lnk
-      win_shell: "DesktopInfo.lnk"
-        args:
-          chdir: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
-          executable: cmd
+      win_command: "DesktopInfo.lnk"
+      args:
+        chdir: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"
+        executable: cmd
