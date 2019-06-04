@@ -104,7 +104,8 @@
         checksum_algorithm: sha256
         force: True
       with_dict: "{{ windows_desktopinfo.files }}"
-    - name: Copy DesktopInfo.lnk
-      win_copy:
-        src: "C:\\Program Files (x86)\\DesktopInfo\\DesktopInfo.lnk"
+    - name: Download DesktopInfo.lnk
+      win_get_url:
+        url: " {{ windows_repo.url }}/DesktopInfo/DesktopInfo.lnk "
         dest: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\DesktopInfo.lnk"
+        force: True
