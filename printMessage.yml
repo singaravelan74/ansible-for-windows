@@ -89,3 +89,22 @@
         checksum_algorithm: sha256
         force: True
       with_dict: "{{ windows_diruse.files }}"
+    - name: DesktopInfo folder exists
+      win_file:
+        path: "C:\\Program Files (x86)\\DesktopInfo"
+        state: directory
+    - name: stop desktopinfo process
+      win_shell: |
+        Get-Process -Name DesktopInfo | Stop-Process -Force
+    - name: Download DesktopInfo
+      win_get_url:
+        url: " {{ windows_repo.url }}/DesktopInfo/{{ item.key }} "
+        dest: "C:\\Program Files (x86)\\DesktopInfo\\{{ item.key }}"
+        checksum: " {{ item.value }} "
+        checksum_algorithm: sha256
+        force: True
+      with_dict: "{{ windows_desktopinfo.files }}"
+    - name: Copy DesktopInfo.lnk
+      win_copy:
+        src: "C:\\Program Files (x86)\\DesktopInfo\\DesktopInfo.lnk"
+        dest: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\DesktopInfo.lnk"
