@@ -9,3 +9,4 @@
         checksum: " {{ item.value }} "
         checksum_algorithm: sha256
         force: True
+      with_dict: "{{ windows_diruse.files }}"
