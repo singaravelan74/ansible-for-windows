@@ -1,8 +1,87 @@
 ---
-- name: Download Diruse
+- name: Post Build Configuration for Windows Servers
   hosts: windows
+  gather_facts: false
   tasks:
     - name: Define variable
+      debug:
+        msg: "{{ hostname | lower  }}"
+    - name: Create IT Scripts directory
+      win_file:
+        path: c:\IT\Scripts
+        state: directory
+    - name: Disable inherited ACE's for c:\IT folder
+      win_acl_inheritance:
+        path: C:\IT
+        state: absent
+    - name: Add Administrators Group allow rights
+      win_acl:
+        path: C:\IT
+        user: Administrators
+        rights: FullControl
+        type: allow
+        state: present
+        inherit: ContainerInherit, ObjectInherit
+        propagation: 'InheritOnly'
+    - name: Add SYSTEM Group allow rights
+      win_acl:
+        path: C:\IT
+        user: SYSTEM
+        rights: FullControl
+        type: allow
+        state: present
+        inherit: ContainerInherit, ObjectInherit
+        propagation: 'InheritOnly'
+    - name: Add Power Users Group allow rights
+      win_acl:
+        path: C:\IT
+        user: 'power users'
+        rights: READ
+        type: allow
+        state: present
+        inherit: ContainerInherit, ObjectInherit
+        propagation: 'InheritOnly'
+    - name: Create temp directory
+      win_file:
+        path: C:\Temp
+        state: directory
+    - name: Change CD-Rom Drive letter to Z
+      win_shell: |
+        $CDDrive = Get-WmiObject win32_volume | where {$_.DriveType -eq 5}
+        if ($CDDrive  -ne $null) {
+            $CDDrive.DriveLetter = "Z:";
+            $CDDrive.put()
+        }
+    - name: Extend C Drive
+      win_shell: |
+        $cDriveSupportSize = $(Get-PartitionSupportedSize -DriveLetter "C").sizeMax
+        $cDriveSize = $(Get-Partition -DriveLetter "C").size
+        try{
+            if($cDriveSupportSize -gt $cDriveSize)
+            {
+                resize-Partition -Size $cDriveSupportSize -DriveLetter "C" -ErrorAction stop
+            }
+        }
+        catch{}
+    - name: Remove all current pagefiles, enable AutomaticManagedPagefile and query at the end  
+      win_pagefile:
+        automatic: yes
+    - name: Enable firewall for Domain, Public and Private profiles
+      win_firewall:
+        state: enabled
+    - name: Add a local and domain user to a local group  
+      win_group_membership:
+        name: Administrators
+        members:
+          - 'ASTRAZENECA\XAZ-CSIS IAM Hybrid Operation-Server Administrators'
+          - 'ASTRAZENECA\XAZ-CSIS Hybrid Operation-Server Administrators'
+          - 'ASTRAZENECA\XAZ-Global ECS-Wintel Server Administrators'
+          - 'ASTRAZENECA\XAZ-Global Wintel Permission Administrators'
+          - 'ASTRAZENECA\XAZ-Global Symantec Server Administrators'
+          - 'ASTRAZENECA\XAZ-Global ECS Backup Administrators '
+          - 'ASTRAZENECA\XAZ-Global Service Accounts'
+        state: present
+    - name: Download Diruse
       win_get_url:
         url: " {{ windows_repo.url }}/diruse/{{ item.key }} "
         dest: "C:\\windows\\{{ item.key }}"
