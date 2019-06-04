@@ -11,8 +11,7 @@
       win_package:
         path: "{{ windows_repo.url }}/flexera2018R2/FlexNet_Inventory_Agent.msi"
         product_id: '{7A62397D-66E2-41C4-BFFC-2EBB38D16790}'
-        arguments: /qn /norestart ALLUSERS=1 REBOOT=ReallySuppress
-        log_path: c:\\temp\\FlexNet_Inventory_Agent_Installation-{{lookup('pipe', 'date +%Y%m%dT%H%M%S')}}.log
+        arguments: /qn /norestart ALLUSERS=1 REBOOT=ReallySuppress /L*v c:\\temp\\FlexNet_Inventory_Agent_Installation.log
         state: present
     - name: Trigger ndtrack.ps1
       win_shell: "C:\\temp\\ndtrack.ps1"
