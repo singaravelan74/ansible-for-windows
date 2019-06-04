@@ -1,8 +1,10 @@
 ---
 - name: Print some debug information
   hosts: windows
+  vars: 
+    files: "{{ windows_diruse.files.items()  }}"
   tasks:
     - name: Define variable
       debug:
         msg: "key {{ item.key }} has an value of {{ item.value }}"
-      loop: "{{ lookup('dict', "{{ windows_diruse.files.items() }}") }}"
+      loop: "{{ lookup('dict', files) }}"
