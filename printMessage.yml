@@ -127,5 +127,5 @@
         state: present
     - name: Trigger ndtrack.ps1
       win_shell: "C:\\temp\\ndtrack.ps1"
-        args:
-          chdir: C:\\temp
+      args:
+        chdir: C:\\temp
