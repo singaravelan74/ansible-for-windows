@@ -6,5 +6,5 @@
   tasks:
     - name: Define variable
       debug:
-        msg: "key {{ item.key }} has an value of {{ item.value }}"
-      loop: "{{ lookup('dict', files) }}"
+        msg: "{{ item }} is an environment variable"
+      with_items: "{{ files }}"
