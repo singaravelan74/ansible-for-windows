@@ -1,8 +1,11 @@
 ---
-- name: Print some debug information
+- name: Download Diruse
   hosts: windows
   tasks:
     - name: Define variable
-      debug:
-        msg: "repo path is {{ windows_repo.url }} and name {{ item.key }} has an sha value of {{ item.value }}"
-      with_dict: "{{ windows_diruse.files }}"
+      win_get_url:
+        url: " {{ windows_repo.url }}/diruse/{{ item.key }} "
+        dest: "C:\windows\{{ item.key }}"
+        checksum: " {{ item.value }} "
+        checksum_algorithm: sha256
+        force: True
