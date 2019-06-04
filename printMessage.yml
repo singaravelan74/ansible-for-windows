@@ -4,5 +4,5 @@
   tasks:
     - name: Define variable
       debug:
-        msg: "name {{ item.name }} has an sha value of {{ item.sha }}"
-      with_items: "{{ windows_diruse.files }}"
+        msg: "name {{ item.key }} has an sha value of {{ item.value }}"
+      with_dict: "{{ windows_diruse.files }}"
