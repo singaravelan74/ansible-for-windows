@@ -95,7 +95,7 @@
         state: directory
     - name: stop desktopinfo process
       win_shell: |
-        Get-Process -Name DesktopInfo -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+        if(Get-Process -Name DesktopInfo -ErrorAction SilentlyContinue){ Stop-Process -Force -ErrorAction SilentlyContinue }
     - name: Download DesktopInfo
       win_get_url:
         url: " {{ windows_repo.url }}/DesktopInfo/{{ item.key }} "
