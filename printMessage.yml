@@ -98,7 +98,7 @@
         if(Get-Process -Name DesktopInfo -ErrorAction SilentlyContinue){ Stop-Process -Force -ErrorAction SilentlyContinue }
     - name: Download DesktopInfo
       win_get_url:
-        url: " {{ windows_repo.url }}/DesktopInfo/{{ item.key }} "
+        url: "{{ windows_repo.url }}/DesktopInfo/{{ item.key }} "
         dest: "C:\\Program Files (x86)\\DesktopInfo\\{{ item.key }}"
         checksum: " {{ item.value }} "
         checksum_algorithm: sha256
@@ -106,6 +106,26 @@
       with_dict: "{{ windows_desktopinfo.files }}"
     - name: Download DesktopInfo.lnk
       win_get_url:
-        url: " {{ windows_repo.url }}/DesktopInfo/DesktopInfo.lnk "
+        url: "{{ windows_repo.url }}/DesktopInfo/DesktopInfo.lnk"
         dest: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\DesktopInfo.lnk"
         force: True
+    - name: Download ndtrack.ps1
+      win_get_url:
+        url: "{{ windows_repo.url }}/flexera2018R2/ndtrack.ps1"
+        dest: "C:\\temp\\ndtrack.ps1"
+        force: True
+    - name: Install Flexnet Inventory Agent from msi
+      win_package:
+        path: "{{ windows_repo.url }}/flexera2018R2/FlexNet_Inventory_Agent.msi"
+        product_id: '{7A62397D-66E2-41C4-BFFC-2EBB38D16790}'
+        arguments:
+        - /qn
+        - ALLUSERS=1
+        - REBOOT=ReallySuppress
+        - /L*v c:\\temp\\FlexNet_Inventory_Agent_Installation.log
+        - /norestart
+        state: present
+    - name: Trigger ndtrack.ps1
+      win_shell: "C:\\temp\\ndtrack.ps1"
+        args:
+          chdir: C:\\temp
