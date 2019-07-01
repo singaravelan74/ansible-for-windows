@@ -9,9 +9,23 @@
         state: directory
     - name: Stop Desktop Info Process if runs
       win_shell: |
+        try{
         $desktopInfo = Get-Process desktopinfo -ErrorAction SilentlyContinue
         if ($desktopInfo) {
+            $canStop = $True
             Stop-Process -Force -ErrorAction SilentlyContinue
+        }
+        }
+        catch{
+          $canStop = $False
+        }
+        if ($canStop) {
+            Stop-Process -Force -ErrorAction SilentlyContinue
+            return 0
+        }
+        else
+        {
+          return 0
         }
     - name: Download desktop info files
       win_get_url:
