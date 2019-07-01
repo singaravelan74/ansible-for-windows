@@ -2,6 +2,11 @@
 - name: copy diruse
   hosts: windows
   gather_facts: false
+  vars:
+    windows_diruse:
+      files:
+        devcon.exe: 551886804fd55a4b795cc2e465e8199bc798f71d5fda79f3c3ad853ca14c31cd
+        diruse.exe: b8240ccba03ee8cf8b1f281f3a517be42798c792d7925043d9eb6dcbb56955c3
   tasks:
     - name: Download diruse files
       win_get_url:
