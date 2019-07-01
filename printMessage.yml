@@ -26,4 +26,4 @@
         checksum_algorithm: sha256
         force: True
       loop: "{{ lookup('dict', windows_desktopinfo.files) }}"
-      when: {{ item.key }} = 'DesktopInfo.lnk'
+      when: "{{ item.key }}" = "DesktopInfo.lnk"
