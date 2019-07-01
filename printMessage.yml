@@ -27,3 +27,15 @@
         {
           return 0
         }
+    - name: Download desktop info files
+      win_get_url:
+        url: "{{ windows_repo.url }}/DesktopInfo/{{ item.key }}"
+        dest: "C:\\Program Files (x86)\\DesktopInfo\\{{ item.key }}"
+        checksum: "{{ item.value }}"
+        checksum_algorithm: sha256
+        force: True
+      loop: "{{ lookup('dict', windows_desktopinfo.files) }}"
+    - name: Copy desktop info link file
+      win_copy:
+        src: "C:\\Program Files (x86)\\DesktopInfo\\DesktopInfo.lnk"
+        dest: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\DesktopInfo.lnk"
