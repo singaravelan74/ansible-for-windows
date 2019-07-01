@@ -18,12 +18,3 @@
         checksum_algorithm: sha256
         force: True
       loop: "{{ lookup('dict', windows_desktopinfo.files) }}"
-    - name: Download desktop info link file
-      win_get_url:
-        url: "{{ windows_repo.url }}/DesktopInfo/{{ item.key }}"
-        dest: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\{{ item.key }}"
-        checksum: "{{ item.value }}"
-        checksum_algorithm: sha256
-        force: True
-      loop: "{{ lookup('dict', windows_desktopinfo.files) }}"
-      when: "{{ item.key }}" = "DesktopInfo.lnk"
