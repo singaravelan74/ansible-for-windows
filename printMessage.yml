@@ -10,4 +10,4 @@
         checksum: "{{ item.value }}"
         checksum_algorithm: sha256
         force: True
-        with_dict: "{{ lookup('dict', windows_diruse.files) }}"
+      with_dict: "{{ lookup('dict', windows_diruse.files) }}"
