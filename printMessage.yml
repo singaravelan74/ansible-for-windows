@@ -3,42 +3,11 @@
   hosts: windows
   gather_facts: false
   tasks:
-    - name: Create Desktop Info folder
-      win_file:
-        path: 'C:\Program Files (x86)\DesktopInfo'
-        state: directory
-    - name: Stop Desktop Info Process if runs
-      win_shell: |
-        try{
-        $desktopInfo = Get-Process desktopinfo -ErrorAction stop
-        if ($desktopInfo) {
-            $canStop = $True
-            Stop-Process -Force -ErrorAction SilentlyContinue
-        }
-        }
-        catch{
-          $canStop = $False
-        }
-        if ($canStop) {
-            Get-Process desktopinfo | Stop-Process -Force
-            return 0
-        }
-        else
-        {
-          return 0
-        }
-    - name: Download desktop info files
+    - name: Download sysiternals files
       win_get_url:
-        url: "{{ windows_repo.url }}/DesktopInfo/{{ item.key }}"
-        dest: "C:\\Program Files (x86)\\DesktopInfo\\{{ item.key }}"
+        url: "{{ windows_repo.url }}/SysInternals-suite/{{ item.key }}"
+        dest: "c:\\it\\SysInternals\\{{ item.key }}"
         checksum: "{{ item.value }}"
         checksum_algorithm: sha256
         force: True
-      loop: "{{ lookup('dict', windows_desktopinfo.files) }}"
-    - name: Copy desktop info link file
-      win_get_url:
-        url: "{{ windows_repo.url }}/DesktopInfo/DesktopInfo.lnk"
-        dest: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\DesktopInfo.lnk"
-        checksum: "3ba0b49e7fa16461b390a4a872c180a10c4560881487e876279e708f47bf97f2"
-        checksum_algorithm: sha256
-        force: True
+      loop: "{{ lookup('dict', sysinternals.files) }}"
