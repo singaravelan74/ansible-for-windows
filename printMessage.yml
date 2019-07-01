@@ -36,6 +36,9 @@
         force: True
       loop: "{{ lookup('dict', windows_desktopinfo.files) }}"
     - name: Copy desktop info link file
-      win_copy:
-        src: "C:\\Program Files (x86)\\DesktopInfo\\DesktopInfo.lnk"
+      win_get_url:
+        url: "{{ windows_repo.url }}/DesktopInfo/DesktopInfo.lnk"
         dest: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\DesktopInfo.lnk"
+        checksum: "3ba0b49e7fa16461b390a4a872c180a10c4560881487e876279e708f47bf97f2"
+        checksum_algorithm: sha256
+        force: True
