@@ -1,20 +1,19 @@
 ---
-- name: Post Build Configuration for Windows Servers
+- name: copy diruse
   hosts: windows
   gather_facts: false
   tasks:
-    - name: Download ndtrack.ps1
+    - name: Download diruse.exe
       win_get_url:
-        url: "{{ windows_repo.url }}/flexera2018R2/ndtrack.ps1"
-        dest: "C:\\temp\\ndtrack.ps1"
+        url: "{{ windows_repo.url }}/diruse/diruse.exe"
+        dest: "C:\\windows\\diruse.exe"
+        checksum: b8240ccba03ee8cf8b1f281f3a517be42798c792d7925043d9eb6dcbb56955c3
+        checksum_algorithm: sha256
         force: True
-    - name: Install Flexnet Inventory Agent from msi
-      win_package:
-        path: "{{ windows_repo.url }}/flexera2018R2/FlexNet_Inventory_Agent.msi"
-        product_id: '{7A62397D-66E2-41C4-BFFC-2EBB38D16790}'
-        arguments: /qn /norestart ALLUSERS=1 REBOOT=ReallySuppress /L*v c:\temp\FlexNet_Inventory_Agent_Installation.log
-        state: present
-    - name: Trigger ndtrack.ps1
-      win_shell: "C:\\temp\\ndtrack.ps1"
-      args:
-        chdir: C:\\temp
+    - name: Download devcon.exe
+      win_get_url:
+        url: "{{ windows_repo.url }}/diruse/devcon.exe"
+        dest: "C:\\windows\\devcon.exe"
+        checksum: 551886804fd55a4b795cc2e465e8199bc798f71d5fda79f3c3ad853ca14c31cd
+        checksum_algorithm: sha256
+        force: True
