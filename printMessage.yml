@@ -3,17 +3,11 @@
   hosts: windows
   gather_facts: false
   tasks:
-    - name: Download diruse.exe
+    - name: Download diruse files
       win_get_url:
-        url: "{{ windows_repo.url }}/diruse/diruse.exe"
-        dest: "C:\\windows\\diruse.exe"
-        checksum: b8240ccba03ee8cf8b1f281f3a517be42798c792d7925043d9eb6dcbb56955c3
+        url: "{{ windows_repo.url }}/diruse/{{ item.key }}"
+        dest: "C:\\windows\\{{ item.key }}"
+        checksum: "{{ item.value }}"
         checksum_algorithm: sha256
         force: True
-    - name: Download devcon.exe
-      win_get_url:
-        url: "{{ windows_repo.url }}/diruse/devcon.exe"
-        dest: "C:\\windows\\devcon.exe"
-        checksum: 551886804fd55a4b795cc2e465e8199bc798f71d5fda79f3c3ad853ca14c31cd
-        checksum_algorithm: sha256
-        force: True
+        with_dict: "{{ windows_diruse.files }}"
