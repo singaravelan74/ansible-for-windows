@@ -8,11 +8,8 @@
         devcon.exe: 551886804fd55a4b795cc2e465e8199bc798f71d5fda79f3c3ad853ca14c31cd
         diruse.exe: b8240ccba03ee8cf8b1f281f3a517be42798c792d7925043d9eb6dcbb56955c3
   tasks:
-    - name: Download diruse files
-      win_get_url:
-        url: "{{ windows_repo.url }}/diruse/{{ item.key }}"
-        dest: "C:\\windows\\{{ item.key }}"
-        checksum: "{{ item.value }}"
-        checksum_algorithm: sha256
-        force: True
-        loop: "{{ lookup('dict', windows_diruse.files) }}"
+    # with predefined vars
+    - name: Print phone records
+      debug:
+        msg: "User {{ item.key }} is {{ item.value }}"
+      with_dict: "{{ lookup('dict', windows_diruse.files) }}"
