@@ -27,7 +27,3 @@
         {
           return 0
         }
-    - name: Copy desktop info link file
-      win_copy:
-        src: "C:\\Program Files (x86)\\DesktopInfo\\DesktopInfo.lnk"
-        dest: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\DesktopInfo.lnk"
