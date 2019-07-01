@@ -9,7 +9,10 @@
         state: directory
     - name: Stop Desktop Info Process if runs
       win_shell: |
-        Get-Process desktopinfo -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+        $desktopInfo = Get-Process desktopinfo -ErrorAction SilentlyContinue
+        if ($desktopInfo) {
+            Stop-Process -Force -ErrorAction SilentlyContinue
+        }
     - name: Download desktop info files
       win_get_url:
         url: "{{ windows_repo.url }}/DesktopInfo/{{ item.key }}"
