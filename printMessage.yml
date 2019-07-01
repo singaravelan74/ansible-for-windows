@@ -10,7 +10,7 @@
     - name: Stop Desktop Info Process if runs
       win_shell: |
         try{
-        $desktopInfo = Get-Process desktopinfo -ErrorAction SilentlyContinue
+        $desktopInfo = Get-Process desktopinfo -ErrorAction stop
         if ($desktopInfo) {
             $canStop = $True
             Stop-Process -Force -ErrorAction SilentlyContinue
@@ -20,7 +20,7 @@
           $canStop = $False
         }
         if ($canStop) {
-            Stop-Process -Force -ErrorAction SilentlyContinue
+            Get-Process desktopinfo | Stop-Process -Force
             return 0
         }
         else
