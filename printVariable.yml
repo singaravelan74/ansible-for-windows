@@ -8,7 +8,3 @@
 
     - name: "print message"
       ansible.builtin.debug:
-        msg: "fruit is {{ fruit }}"
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
