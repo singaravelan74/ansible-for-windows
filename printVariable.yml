@@ -8,3 +8,4 @@
 
     - name: "print message"
       ansible.builtin.debug:
+        msg: "fruit is {{ fruit }}"
