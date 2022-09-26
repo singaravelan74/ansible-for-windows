@@ -1,0 +1,6 @@
+- name: debug setup
+    debug:
+      var: setup
+  - name: variables from morpheus
+    debug:
+      var: fact_one
