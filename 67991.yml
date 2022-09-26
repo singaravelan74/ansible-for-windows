@@ -1,6 +1,6 @@
 ---
 # This playbook prints a simple debug message
-- name: Echo 
+- name: Test morpheus variables 
   hosts: all
   gather_facts: yes
   become: yes
@@ -9,6 +9,6 @@
   connection: local
 
   tasks:
-  - name: Print debug message
+  - name: gather facts
     debug:
       msg: Hello, world!
