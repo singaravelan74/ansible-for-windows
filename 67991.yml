@@ -1,6 +1,10 @@
-- name: debug setup
+---
+# This playbook prints a simple debug message
+- name: Echo 
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+  - name: Print debug message
     debug:
-      var: setup
-  - name: variables from morpheus
-    debug:
-      var: fact_one
+      msg: Hello, world!
