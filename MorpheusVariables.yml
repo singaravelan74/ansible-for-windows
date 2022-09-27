@@ -1,0 +1,26 @@
+--- 
+- 
+  gather_facts: true
+  hosts: all
+  name: "Test morpheus variables"
+  tasks: 
+    - 
+      ignore_errors: true
+      name: "gather facts"
+      register: setup
+      setup: ~
+    - 
+      ignore_errors: true
+      name: "variables from morpheus"
+      set_fact: 
+        fact_one: "{{morpheus | to_json}}"
+    - 
+      debug: 
+        var: setup
+      ignore_errors: true
+      name: "debug setup"
+    - 
+      debug: 
+        var: fact_one
+      ignore_errors: true
+      name: "variables from morpheus"
