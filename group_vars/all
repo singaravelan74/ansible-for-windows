@@ -3,9 +3,9 @@ morhost: all
 hostname: "{{ morpheus['instance']['hostname']  }}"
 
 windows_repo:
-  url: 'http://sesklpulpprd01.astrazeneca.net/pulp/isos'
-  url_SQL: 'http://sesklpulpprd01.astrazeneca.net/MSSQLServer'
-  url_SQL_nagios: 'http://sesklpulpprd01.astrazeneca.net/nsclient/'
+  url: 'http://xxx.xxx.net/pulp/isos'
+  url_SQL: 'http://xxx.xxx.net/MSSQLServer'
+  url_SQL_nagios: 'http://xxx.xxx.net/nsclient/'
 windows_desktopinfo:
   files:
     DesktopInfo.exe: 59efbfaecb352ef55541257cdc189bb4908e5fc0ba3342748283f64dd1a88a39
@@ -137,12 +137,12 @@ windows_hardening:
 SPLUNK:
   DEPLOYMENT_SERVERS:
     amer:
-      SERVER: "USPLALSPLKDS1.astrazeneca.net:8089"
+      SERVER: "xxx.xxx.net:8089"
     emea:
-      SERVER: "SESKLSPLKDS1.astrazeneca.net:8089"
+      SERVER: "xxx.xxx.net:8089"
     apac:
-      SERVER: "SGKCALSPLKDS1.astrazeneca.net:8089"
-  REPO: http://sesklpulpprd01.astrazeneca.net/pulp/isos/Splunk
+      SERVER: "xxx.xxx.net:8089"
+  REPO: http://xxx.xxx.net/pulp/isos/Splunk
 sysinternals:
   files:
     accesschk.exe: 03cba9a8bb79772942dcb812c70f09dbab34944e918b71450347ffab2aab9b0a
@@ -258,7 +258,7 @@ tanium:
     - tanium.pub
 windows_users:
   Administrator:
-    password: pulm!c0rt@Z
+    password: XXXXXXXXX
 #IIS
 windows_iis:
   inetpubfolders:
@@ -394,8 +394,8 @@ MSSQL:
   SAPWD: Astra@123
   INSTALLACCOUNT: 'Astrazeneca\XAZVCSVC'
   INSTALLACCOUNTPW: 'Luu3EnF28L'
-  ADSQLACCOUNTS: '"ASTRAZENECA\XAZHPDPSVC" "EMEA\XAZ-ECAP-DBA-SQL-PROD" "ASTRAZENECA\XAZ-CSIS Hybrid Operation-Server Administrators"'
-  ADWINACCOUNTS: '"EMEA\XAZ-ECAP-DBA-SQL-PROD"'
+  ADSQLACCOUNTS: '"xxx\xxxx" "xxx\xxxx" "xxx\xxxx"'
+  ADWINACCOUNTS: '"xxx\xxxx"'
   USERACCOUNT: 'N/A'
   SERVICEACCOUNT: 'N/A'
   SERVICEACCOUNTPW: 'N/A'
@@ -413,13 +413,13 @@ MSSQL:
   enrollment_hostgroups_SQL: SQL_WINDOWS
   REGIONSERVICEACCOUNT:
     amer:
-      USER: 'AMERICAS\kzfj062'
+      USER: 'xxx\xxxx'
       PW: '4CYYhcfOu0'
     emea:
-      USER: 'EMEA\kwhf108'
+      USER: 'xxx\xxxx'
       PW: 'vhTp32BZnZ'
     apac:
-      USER: 'ASIAPAC\krln295'
+      USER: 'xxx\xxxx'
       PW: 'G9NyYA4ZTR'
 # DC name to timezone mapping
 # A country may have multiple timezones, but a DC is always in one TZ
