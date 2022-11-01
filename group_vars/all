@@ -392,8 +392,8 @@ MSSQL:
   DBEDITION: STD
   SQLCOLLATION: SQL_Latin1_General_CP1_CI_AS
   SAPWD: Astra@123
-  INSTALLACCOUNT: 'Astrazeneca\XAZVCSVC'
-  INSTALLACCOUNTPW: 'Luu3EnF28L'
+  INSTALLACCOUNT: 'XXX\XXX'
+  INSTALLACCOUNTPW: 'xxxxxxxx'
   ADSQLACCOUNTS: '"xxx\xxxx" "xxx\xxxx" "xxx\xxxx"'
   ADWINACCOUNTS: '"xxx\xxxx"'
   USERACCOUNT: 'N/A'
@@ -414,13 +414,13 @@ MSSQL:
   REGIONSERVICEACCOUNT:
     amer:
       USER: 'xxx\xxxx'
-      PW: '4CYYhcfOu0'
+      PW: 'xxxx'
     emea:
       USER: 'xxx\xxxx'
-      PW: 'vhTp32BZnZ'
+      PW: 'xxxx'
     apac:
       USER: 'xxx\xxxx'
-      PW: 'G9NyYA4ZTR'
+      PW: 'xxxx'
 # DC name to timezone mapping
 # A country may have multiple timezones, but a DC is always in one TZ
 common:
