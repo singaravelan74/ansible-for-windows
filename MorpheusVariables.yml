@@ -6,6 +6,6 @@
         #morpheus: "{{ morpheus }}"
         #msg: "{{ morpheus['morpheus']}}"
         #msg: "{{ morpheus['accountNumber'] }}"
-        msg: "{{ morpheus['user']['linuxUsername'] }}"
+        msg: "{{ user['linuxUsername'] }}"
         #msg: "{{ morpheus['instance']['container']['server']['internalIp'] }}"
         #msg: "{{ morpheus['instance']['container']['server']['osType'] }}"
