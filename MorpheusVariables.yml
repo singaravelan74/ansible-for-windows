@@ -3,7 +3,7 @@
   gather_facts: true
   tasks:
     - debug:
-        morpheus: "{{ morpheus }}"
+        #morpheus: "{{ morpheus }}"
         #msg: "{{ morpheus['morpheus']}}"
         #msg: "{{ morpheus['accountNumber'] }}"
         msg: "{{ morpheus['user']['linuxUsername'] }}"
