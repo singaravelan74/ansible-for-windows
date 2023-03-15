@@ -3,9 +3,9 @@
   gather_facts: true
   tasks:
     - debug:
-        #morpheus: "{{ morpheus }}"
+        morpheus: "{{ morpheus }}"
         #msg: "{{ morpheus['morpheus']}}"
         #msg: "{{ morpheus['accountNumber'] }}"
-        msg: "User: {{ morpheus['user']['linuxUsername'] }}, Cloud Code: {{ morpheus['cloudCode'] }}"
+        #msg: "User: {{ morpheus['user']['linuxUsername'] }}, Cloud Code: {{ morpheus['cloudCode'] }}"
         #msg: "{{ morpheus['instance']['container']['server']['internalIp'] }}"
         #msg: "{{ morpheus['instance']['container']['server']['osType'] }}"
