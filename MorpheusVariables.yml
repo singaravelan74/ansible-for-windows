@@ -6,7 +6,6 @@
         #morpheus: "{{ morpheus }}"
         #msg: "{{ morpheus['morpheus']}}"
         #msg: "{{ morpheus['accountNumber'] }}"
-        msg: "This is : {{ morpheus['user']['linuxUsername'] }}"
-        msg: "Cloud Code is : {{ morpheus['cloudCode'] }}"
+        msg: "User: {{ morpheus['user']['linuxUsername'] }}, Cloud Code: {{ morpheus['cloudCode'] }}"
         #msg: "{{ morpheus['instance']['container']['server']['internalIp'] }}"
         #msg: "{{ morpheus['instance']['container']['server']['osType'] }}"
