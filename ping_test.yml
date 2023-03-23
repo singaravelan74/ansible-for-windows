@@ -1,5 +1,9 @@
 ---
 - hosts: win
+  connection: winrm
+  gather_facts: true
+  become: true
+  become_user: velan
   tasks:
    - name: Ping Windows Hosts
      win_ping:
