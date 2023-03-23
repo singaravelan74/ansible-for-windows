@@ -1,5 +1,5 @@
 ---
-- hosts: 10.32.20.146
+- hosts: win
   connection: winrm
   gather_facts: true
   become: true
