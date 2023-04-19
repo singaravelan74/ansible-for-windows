@@ -3,7 +3,7 @@
 - hosts: all
    gather_facts: true
    become: false
-   become_user: master-btpn
+   become_user: velan
    tasks:
     - name: Windows Ping
       win_ping:
