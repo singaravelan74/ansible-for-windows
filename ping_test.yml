@@ -3,7 +3,7 @@
 - hosts: all
    gather_facts: true
    become: false
-   become_user: velan
+   become_user: "WIN-D00CCAR7EPH\velan"
    tasks:
     - name: Windows Ping
       win_ping:
