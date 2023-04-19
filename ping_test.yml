@@ -1,9 +1,8 @@
 ---
-# This playbook uses the win_ping module to test connectivity to Windows hosts
 - hosts: all
-   gather_facts: true
-   become: false
-   become_user: "WIN-D00CCAR7EPH\velan"
-   tasks:
+  gather_facts: true
+  become: false
+  become_user: "WIN-D00CCAR7EPH\velan"
+  tasks:
     - name: Windows Ping
-      win_ping:
+      win_ping: null
