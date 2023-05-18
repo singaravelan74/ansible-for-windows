@@ -1,14 +1,14 @@
 ---
 - name: Create temporary directory
   hosts: all
-  gather_facts: false
+  gather_facts: true
 
   tasks:
     - name: Create temporary directory
       tempfile:
         state: directory
         prefix: temp_directory_
-        dir: "{{ ansible_user_dir }}"
+        dir: "~"
       register: temp_dir
 
     - name: Display temporary directory path
