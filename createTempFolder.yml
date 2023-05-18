@@ -1,6 +1,6 @@
 ---
 - name: Create temporary directory
-  hosts: linux_hosts1
+  hosts: all
   gather_facts: false
 
   tasks:
