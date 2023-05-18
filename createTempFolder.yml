@@ -1,6 +1,5 @@
 ---
 - name: Create temporary directory
-  hosts: win
   gather_facts: false
 
   tasks:
