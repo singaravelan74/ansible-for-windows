@@ -5,10 +5,9 @@
 
   tasks:
     - name: Create temporary directory
-      tempfile:
+      file:
         state: directory
-        prefix: temp_directory_
-        dir: "~"
+        path: "{{ ansible_env.HOME }}/temp_directory_{{ ansible_date_time.epoch }}"
       register: temp_dir
 
     - name: Display temporary directory path
