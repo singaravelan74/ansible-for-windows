@@ -1,5 +1,6 @@
 ---
 - name: Create temporary directory
+  hosts: 10.32.23.190
   gather_facts: false
 
   tasks:
